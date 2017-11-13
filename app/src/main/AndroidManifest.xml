@@ -16,7 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".MimiActivity"></activity>
+=======
+        <activity android:name=".RiaActivity"></activity>
+>>>>>>> 69e6c9a630de3ef568d5f623c78b5ddcdd173f31
     </application>
 
 </manifest>
