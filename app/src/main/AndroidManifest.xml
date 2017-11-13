@@ -17,7 +17,11 @@
             </intent-filter>
         </activity>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <activity android:name=".MimiActivity"></activity>
+=======
+        <activity android:name=".AugustActivity"></activity>
+>>>>>>> 3f281f4d1180732efd75e0ade896a63bea2ecfdc
 =======
         <activity android:name=".RiaActivity"></activity>
 >>>>>>> 69e6c9a630de3ef568d5f623c78b5ddcdd173f31
