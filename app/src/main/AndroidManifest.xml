@@ -19,7 +19,6 @@
         <activity android:name=".MimiActivity"></activity>
         <activity android:name=".AugustActivity"></activity>
         <activity android:name=".RiaActivity"></activity>
-        <activity android:name=".JeanActivity"></activity>
     </application>
 
 </manifest>
