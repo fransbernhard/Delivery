@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".StartActivity" />
-        <activity android:name=".PreferenceActivity"></activity>
+        <activity android:name=".PreferenceActivity" />
+        <activity android:name=".ListActivity"></activity>
     </application>
 
 </manifest>
