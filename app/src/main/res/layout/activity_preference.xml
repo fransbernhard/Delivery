@@ -6,4 +6,95 @@
     android:layout_height="match_parent"
     tools:context="se.fransbernhard.delivery.PreferenceActivity">
 
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:text="Inställningar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Inställningar" />
+
+    <TextView
+        android:id="@+id/textHowMany"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:text="Hur många ordrar ska genereras vid uppdatering?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTitle"
+        tools:text="Hur många ordrar ska genereras vid uppdatering?" />
+
+    <SeekBar
+        android:id="@+id/seekBarHowMany"
+        android:layout_width="108dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textHowMany" />
+
+    <CheckBox
+        android:id="@+id/sendConfirmation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="32dp"
+        android:text="Skicka bekräftelse om leverans till lager"
+        app:layout_constraintBottom_toTopOf="@+id/editPhoneNr"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Skicka bekräftelse om leverans till lager" />
+
+    <EditText
+        android:id="@+id/editPhoneNr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="32dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Telefonnummer"
+        app:layout_constraintBottom_toTopOf="@+id/editEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Telefonnummer" />
+
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginStart="32dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="E-mailaddress"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSave"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="E-mailaddress" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginStart="32dp"
+        android:onClick="clickedSave"
+        android:text="Spara"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Spara" />
+
+    <TextView
+        android:id="@+id/textAmountOfOrders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/seekBarHowMany"
+        app:layout_constraintTop_toBottomOf="@+id/textHowMany"
+        tools:text="10" />
+
 </android.support.constraint.ConstraintLayout>
