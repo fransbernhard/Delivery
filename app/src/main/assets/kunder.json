@@ -1,0 +1,66 @@
+{
+  "Kunder": [
+    {
+      "name": "Sven Svensson",
+      "adress": "Södra vägen 17",
+      "deliveryDate": "14/11 kl 13:00",
+      "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ2ucg1eVzVmcUR1A6Z2H0gpUyUGIBaG3WQn-FOXxa40GZo9W9"
+
+    },
+
+    {
+      "name": "Börje Börjesson",
+      "adress": "Bara Ben 2B",
+      "deliveryDate": "15/12 kl 16:15",
+      "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ2ucg1eVzVmcUR1A6Z2H0gpUyUGIBaG3WQn-FOXxa40GZo9W9"
+    },
+
+    {
+      "name": "Arne Anka",
+      "adress": "Andra Gatan 7",
+      "deliveryDate": "15/12 kl 16:15",
+      "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ2ucg1eVzVmcUR1A6Z2H0gpUyUGIBaG3WQn-FOXxa40GZo9W9"
+    },
+
+    {
+      "name": "Börje Börjesson",
+      "adress": "Bara Ben 2B",
+      "deliveryDate": "15/12 kl 16:15",
+      "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ2ucg1eVzVmcUR1A6Z2H0gpUyUGIBaG3WQn-FOXxa40GZo9W9"
+    },
+
+
+    {
+      "name": "Börje Börjesson",
+      "adress": "Bara Ben 2B",
+      "deliveryDate": "15/12 kl 16:15",
+      "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ2ucg1eVzVmcUR1A6Z2H0gpUyUGIBaG3WQn-FOXxa40GZo9W9"
+    },
+
+    {
+      "name": "Börje Börjesson",
+      "adress": "Bara Ben 2B",
+      "deliveryDate": "15/12 kl 16:15",
+      "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ2ucg1eVzVmcUR1A6Z2H0gpUyUGIBaG3WQn-FOXxa40GZo9W9"
+    },
+
+
+    {
+      "name": "Börje Börjesson",
+      "adress": "Bara Ben 2B",
+      "deliveryDate": "15/12 kl 16:15",
+      "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ2ucg1eVzVmcUR1A6Z2H0gpUyUGIBaG3WQn-FOXxa40GZo9W9"
+    },
+
+
+    {
+      "name": "Börje Börjesson",
+      "adress": "Bara Ben 2B",
+      "deliveryDate": "15/12 kl 16:15",
+      "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ2ucg1eVzVmcUR1A6Z2H0gpUyUGIBaG3WQn-FOXxa40GZo9W9"
+    }
+
+
+  ]
+
+}

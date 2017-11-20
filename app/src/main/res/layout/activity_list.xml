@@ -6,4 +6,51 @@
     android:layout_height="match_parent"
     tools:context="se.fransbernhard.delivery.ListActivity">
 
+    <Button
+        android:id="@+id/EjLevButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="192dp"
+        android:layout_height="52dp"
+        android:text="Ej Levererade"
+        android:textColor="@color/colorButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/LevButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="192dp"
+        android:layout_height="52dp"
+        android:background="@color/colorButtonfaded"
+        android:text="Levererade"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/EjLevButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/Linje"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="52dp"
+        android:background="#c0c0c0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/OrderLista"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EjLevButton" />
+
+
+
 </android.support.constraint.ConstraintLayout>
