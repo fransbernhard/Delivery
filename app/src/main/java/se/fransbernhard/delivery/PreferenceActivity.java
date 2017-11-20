@@ -1,8 +1,12 @@
 package se.fransbernhard.delivery;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -18,6 +22,7 @@ public class PreferenceActivity extends AppCompatActivity {
     private SeekBar seekBarHowMany;
     private SharedPreferences shared;
     private int amountOfOrders;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +36,28 @@ public class PreferenceActivity extends AppCompatActivity {
         editEmail = (EditText)findViewById(R.id.editEmail);
         seekBarHowMany = (SeekBar)findViewById(R.id.seekBarHowMany);
         amountOfOrders = 10;
+        toolbar = (Toolbar) findViewById(R.id.myToolbar);
+        toolbar.setTitleTextColor(Color.WHITE);
+        setSupportActionBar(toolbar);
+        // This will remove App name
+//        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         setupSeekBar();
 
         setupAsSaved();
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_preference_toolbar, menu);
+        return true;
+    }
+
+    // TODO: 2017-11-20 (JEAN)
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 
     public void clickedSave(View v) {

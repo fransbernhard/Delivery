@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Delivery</string>
-    <string name="settings_icon">Settings</string>
+    <string name="ejLeveradeButton">Ej Leverade</string>
+    <string name="levereradeButton">Levererade</string>
+    <string name="settingsButton">Settigns</string>
+    <string name="refreshButton">Refresh</string>
+    <string name="listButton">ListView</string>
 </resources>

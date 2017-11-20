@@ -6,15 +6,23 @@
     android:layout_height="match_parent"
     tools:context="se.fransbernhard.delivery.ListActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/myToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
     <Button
         android:id="@+id/EjLevButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="192dp"
         android:layout_height="52dp"
-        android:text="Ej Levererade"
+        android:text="@string/ejLeveradeButton"
         android:textColor="@color/colorButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/myToolbar" />
 
     <Button
         android:id="@+id/LevButton"
@@ -22,17 +30,18 @@
         android:layout_width="192dp"
         android:layout_height="52dp"
         android:background="@color/colorButtonfaded"
-        android:text="Levererade"
+        android:text="@string/levereradeButton"
         android:textColor="@android:color/background_light"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/EjLevButton"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/myToolbar" />
 
     <View
         android:id="@+id/Linje"
         android:layout_width="fill_parent"
         android:layout_height="2dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="108dp"
         android:background="#c0c0c0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
