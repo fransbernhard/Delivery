@@ -1,5 +1,6 @@
 package se.fransbernhard.delivery;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -54,9 +55,13 @@ public class PreferenceActivity extends AppCompatActivity {
         return true;
     }
 
-    // TODO: 2017-11-20 (JEAN)
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.listButton:
+                startActivity(new Intent(this, ListActivity.class));
+                return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 

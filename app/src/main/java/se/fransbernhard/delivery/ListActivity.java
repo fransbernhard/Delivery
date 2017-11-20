@@ -1,5 +1,6 @@
 package se.fransbernhard.delivery;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -40,6 +41,15 @@ public class ListActivity extends AppCompatActivity {
     // TODO: 2017-11-20 (JEAN)
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.settingsButton:
+                Intent intent = new Intent(this, PreferenceActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                return true;
+            case R.id.refreshButton:
+                // TODO: 2017-11-20 (JEAN) Plocka hem nya ordrar från databasen
+        }
         return super.onOptionsItemSelected(item);
     }
 
