@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#2d2d2d</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorButton">#fa6bcb</color>
+    <color name="colorSplashBackground">#fa6bcb</color>
     <color name="colorButtonfaded">#aafa6bcb</color>
     <color name="colorToolbarTitle">#FFFFFF</color>
 </resources>
