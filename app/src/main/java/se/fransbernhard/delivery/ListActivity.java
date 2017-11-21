@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -28,8 +30,17 @@ public class ListActivity extends AppCompatActivity {
 //        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         final ArrayList<Clients> kundLista = Clients.getKunderFromFile("kunder.json", this);
-        ClientsAdapter adapter = new ClientsAdapter(this, kundLista);
+        final ClientsAdapter adapter = new ClientsAdapter(this, kundLista);
         myList.setAdapter(adapter);
+        myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                          @Override
+                                          public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                              Intent intent = new Intent(ListActivity.this, DetailActivity.class);
+                                              startActivity(intent);
+
+                                          }
+                                      }
+                );
     }
 
     @Override
