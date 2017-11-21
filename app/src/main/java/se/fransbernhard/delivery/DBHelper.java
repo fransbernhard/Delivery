@@ -155,14 +155,14 @@ public class DBHelper extends SQLiteOpenHelper {
 
     /**
      * Get all Clients from the database
-     * @param index - - where to start
+     * @param clientID - - where to start
      * @return a list of orders
      */
-    public Client getClient(int index){
+    public Client getClient(int clientID){
         SQLiteDatabase db = getReadableDatabase();
 
         String selection = "clientID=?";
-        String[] selectionArgs = new String[]{Integer.toString(index)};
+        String[] selectionArgs = new String[]{Integer.toString(clientID)};
 
         Cursor c = db.query("Clients",null, selection, selectionArgs,null,null,null);
 
@@ -178,6 +178,26 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.close();
         return client;
+    }
+
+
+    public Order getOrder(int orderID){
+        SQLiteDatabase db = getReadableDatabase();
+
+        String selection = "orderID=?";
+        String[] selectionArgs = new String[]{Integer.toString(orderID)};
+
+        Cursor c = db.query("Orders",null, selection, selectionArgs,null,null,null);
+
+        Order order = new Order();
+        order.setOrderID(c.getInt(0));
+        order.setOrderSum(c.getInt(1));
+        order.setDeliveryTime(c.getString(2));
+        order.setDelivered(c.getInt(3));
+        order.setClientID(c.getInt(4));
+
+        db.close();
+        return order;
     }
 
     public void addClients(String clientName, String contactPerson, int contactNumber, String contactEmail, String clientAdress, int clientZipCode, String clientCity){

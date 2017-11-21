@@ -11,6 +11,9 @@ import android.view.MenuItem;
 public class DetailActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
+    private DBHelper dbHelper;
+    private Order order;
+    private Client client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,10 @@ public class DetailActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         // This will remove App name
 //        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        dbHelper = new DBHelper(this);
+        Intent intent = getIntent();
+        order = dbHelper.getOrder(intent.getIntExtra("ORDER_ID", 0));
+        client = dbHelper.getClient(order.getClientID());
     }
 
     @Override

@@ -86,6 +86,7 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ListActivity.this, DetailActivity.class);
+                intent.putExtra("ORDER_ID", ordersNotDelivered.get(position).getOrderID());
                 startActivity(intent);
             }
         });
