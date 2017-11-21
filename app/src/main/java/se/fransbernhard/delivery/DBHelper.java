@@ -165,6 +165,7 @@ public class DBHelper extends SQLiteOpenHelper {
         String[] selectionArgs = new String[]{Integer.toString(clientID)};
 
         Cursor c = db.query("Clients",null, selection, selectionArgs,null,null,null);
+        c.moveToFirst();
 
         Client client = new Client();
         client.setClientID(c.getInt(0));
@@ -188,6 +189,7 @@ public class DBHelper extends SQLiteOpenHelper {
         String[] selectionArgs = new String[]{Integer.toString(orderID)};
 
         Cursor c = db.query("Orders",null, selection, selectionArgs,null,null,null);
+        c.moveToFirst();
 
         Order order = new Order();
         order.setOrderID(c.getInt(0));

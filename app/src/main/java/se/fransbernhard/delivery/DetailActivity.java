@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -14,6 +15,8 @@ public class DetailActivity extends AppCompatActivity {
     private DBHelper dbHelper;
     private Order order;
     private Client client;
+    private TextView clientName, clientID, deliveryDate, orderID,
+                    orderSum, contactPerson, contactNumber, email, address, zipCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +29,30 @@ public class DetailActivity extends AppCompatActivity {
 //        getSupportActionBar().setDisplayShowTitleEnabled(false);
         dbHelper = new DBHelper(this);
         Intent intent = getIntent();
-        order = dbHelper.getOrder(intent.getIntExtra("ORDER_ID", 0));
+        order = dbHelper.getOrder(intent.getIntExtra("ORDER_ID", 1));
         client = dbHelper.getClient(order.getClientID());
+
+        clientName = (TextView)findViewById(R.id.clientName);
+        clientID = (TextView)findViewById(R.id.clientID);
+        deliveryDate = (TextView)findViewById(R.id.deliveryDate);
+        orderID = (TextView)findViewById(R.id.orderID);
+        orderSum = (TextView)findViewById(R.id.orderSum);
+        contactPerson = (TextView)findViewById(R.id.contactPerson);
+        contactNumber = (TextView)findViewById(R.id.contactNumber);
+        email = (TextView)findViewById(R.id.email);
+        address = (TextView)findViewById(R.id.address);
+        zipCode = (TextView)findViewById(R.id.zipCode);
+
+        clientName.setText("Clientname:" + client.getClientName());
+        clientID.setText("ClientID: " + Integer.toString(client.getClientID()));
+        deliveryDate.setText("Delivery date: " + order.getDeliveryTime());
+        orderID.setText("Order ID: " + Integer.toString(order.getOrderID()));
+        orderSum.setText("Ordersum: " + Integer.toString(order.getOrderSum()) + " kr");
+        contactPerson.setText("Contactperson: " + client.getContactPerson());
+        contactNumber.setText("Contactnumber: " + Integer.toString(client.getContactNumber()));
+        email.setText("Email: " + client.getContactEmail());
+        address.setText("Adress: " + client.getClientAdress());
+        zipCode.setText("Zip and City: " + Integer.toString(client.getClientZipCode()) + " " + client.getClientCity());
     }
 
     @Override

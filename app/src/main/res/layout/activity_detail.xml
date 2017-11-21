@@ -26,7 +26,7 @@
         app:srcCompat="@mipmap/ic_client_tag" />
 
     <TextView
-        android:id="@+id/Kundnamn"
+        android:id="@+id/clientName"
         android:layout_width="238dp"
         android:layout_height="22dp"
         android:layout_marginTop="8dp"
@@ -36,21 +36,21 @@
         app:layout_constraintTop_toTopOf="@+id/Kundicon" />
 
     <TextView
-        android:id="@+id/Kundnummer"
+        android:id="@+id/clientID"
         android:layout_width="238dp"
         android:layout_height="22dp"
         android:text="Kundnummer 123456789"
         app:layout_constraintStart_toEndOf="@+id/Kundicon"
-        app:layout_constraintTop_toBottomOf="@+id/Kundnamn" />
+        app:layout_constraintTop_toBottomOf="@+id/clientName" />
 
     <TextView
-        android:id="@+id/Leverans"
+        android:id="@+id/deliveryDate"
         android:layout_width="238dp"
         android:layout_height="22dp"
         android:layout_marginTop="4dp"
         android:text="Leverans bokad 13/12 kl 14:00"
         app:layout_constraintStart_toEndOf="@+id/Kundicon"
-        app:layout_constraintTop_toBottomOf="@+id/Kundnummer" />
+        app:layout_constraintTop_toBottomOf="@+id/clientID" />
 
 
     <View
@@ -64,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Leverans" />
+        app:layout_constraintTop_toBottomOf="@+id/deliveryDate" />
 
     <TextView
         android:id="@+id/Order"
@@ -78,7 +78,7 @@
         app:layout_constraintTop_toBottomOf="@+id/Linje" />
 
     <TextView
-        android:id="@+id/OrderNummer"
+        android:id="@+id/orderID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -89,13 +89,13 @@
 
 
     <TextView
-        android:id="@+id/OrderSumma"
+        android:id="@+id/orderSum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Ordersumma: 123 kr"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/OrderNummer" />
+        app:layout_constraintTop_toBottomOf="@+id/orderID" />
 
     <TextView
         android:id="@+id/KontaktPerson"
@@ -106,10 +106,10 @@
         android:text="Kontaktperson"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/OrderSumma" />
+        app:layout_constraintTop_toBottomOf="@+id/orderSum" />
 
     <TextView
-        android:id="@+id/Namn"
+        android:id="@+id/contactPerson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -119,22 +119,22 @@
         app:layout_constraintTop_toBottomOf="@+id/KontaktPerson" />
 
     <TextView
-        android:id="@+id/Telefonnummer"
+        android:id="@+id/contactNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="+46 (0) 123456789"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Namn" />
+        app:layout_constraintTop_toBottomOf="@+id/contactPerson" />
 
     <TextView
-        android:id="@+id/Mail"
+        android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="sven.svensson@hotmail.com"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Telefonnummer" />
+        app:layout_constraintTop_toBottomOf="@+id/contactNumber" />
 
 
     <TextView
@@ -146,10 +146,10 @@
         android:text="Adress"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Mail" />
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <TextView
-        android:id="@+id/Gata"
+        android:id="@+id/address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -159,13 +159,13 @@
         app:layout_constraintTop_toBottomOf="@+id/Adress" />
 
     <TextView
-        android:id="@+id/Postnummer"
+        android:id="@+id/zipCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="123 45 Svenshögen"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Gata" />
+        app:layout_constraintTop_toBottomOf="@+id/address" />
 
     <Button
         android:id="@+id/LeveransButton"

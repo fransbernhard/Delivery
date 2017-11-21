@@ -40,11 +40,11 @@ public class ListActivity extends AppCompatActivity {
         dbhelper = new DBHelper(this);
         amountOfOrders = shared.getInt("NUMBER_OF_ORDERS", 10);
 
-        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
-        dbhelper.addClients("mimi", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 14", 23412, "sthlm");
-        dbhelper.addClients("jeanmichel", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 15", 23412, "sthlm");
-        dbhelper.addClients("ria", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
-        dbhelper.addClients("peter", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
+        dbhelper.addClients("IT Högskolan", "Markus kontakt", 0734526717, "markus@me.se", "markus vägen 13", 23412, "malmö");
+        dbhelper.addClients("TicTale", "Mimi kontakt", 0734526717, "mimi@me.se", "mimi vägen 14", 23412, "sthlm");
+        dbhelper.addClients("Wordpress", "Jean kontakt", 0734526717, "jean@me.se", "jean vägen 15", 23412, "göteborg");
+        dbhelper.addClients("Spotify", "August kontakt", 0734526717, "august@me.se", "august vägen 13", 23412, "lund");
+        dbhelper.addClients("Apple", "Ria kontakt", 0734526717, "ria@me.se", "ria vägen 13", 23412, "österlen");
         dbhelper.addClients("proust", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
         dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
         dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
@@ -56,20 +56,20 @@ public class ListActivity extends AppCompatActivity {
         dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
         dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
         dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
-        dbhelper.addOrders(2345, 170304, 1);
-        dbhelper.addOrders(3333, 175555, 2);
-        dbhelper.addOrders(2333345, 66666, 3);
-        dbhelper.addOrders(2333345, 66666, 4);
-        dbhelper.addOrders(2333345, 66666, 5);
+        dbhelper.addOrders(2345, 170304, 10);
+        dbhelper.addOrders(3333, 170201, 7);
+        dbhelper.addOrders(2333, 160807, 3);
+        dbhelper.addOrders(2333, 171201, 6);
+        dbhelper.addOrders(2333, 170601, 5);
         dbhelper.addOrders(2345, 170304, 6);
-        dbhelper.addOrders(3333, 175555, 6);
-        dbhelper.addOrders(2333345, 66666, 5);
-        dbhelper.addOrders(2333345, 66666, 3);
-        dbhelper.addOrders(2333345, 66666, 2);
-        dbhelper.addOrders(3333, 175555, 4);
-        dbhelper.addOrders(2333345, 66666, 3);
-        dbhelper.addOrders(2333345, 66666, 6);
-        dbhelper.addOrders(2333345, 66666, 2);
+        dbhelper.addOrders(3333, 170404, 7);
+        dbhelper.addOrders(2333, 170808, 5);
+        dbhelper.addOrders(2333, 170909, 3);
+        dbhelper.addOrders(2333, 170606, 7);
+        dbhelper.addOrders(3333, 170505, 4);
+        dbhelper.addOrders(2333, 170404, 3);
+        dbhelper.addOrders(2333, 170303, 6);
+        dbhelper.addOrders(2333, 170202, 2);
 
         ordersDelivered = dbhelper.getAllDeliveryStatus(1, amountOfOrders);
         ordersNotDelivered = dbhelper.getAllDeliveryStatus(0, amountOfOrders);
@@ -86,7 +86,7 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ListActivity.this, DetailActivity.class);
-                intent.putExtra("ORDER_ID", ordersNotDelivered.get(position).getOrderID());
+                intent.putExtra("ORDER_ID", ordersNotDelivered.get(position).getOrderID()+1);
                 startActivity(intent);
             }
         });
