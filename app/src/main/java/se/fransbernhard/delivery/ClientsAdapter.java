@@ -8,31 +8,32 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
-import java.util.ArrayList;
+import java.util.List;
 
 
 public class ClientsAdapter extends BaseAdapter {
 
-    private Context mContext;
+    private Context context;
     private LayoutInflater mInflater;
-    private ArrayList<Clients> mDataSource;
+    private List<Client> clientData;
+    private List<Order> orderData;
 
 
-    public ClientsAdapter(Context context, ArrayList<Clients> items) {
-        mContext = context;
-        mDataSource = items;
-        mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    public ClientsAdapter(Context context, List<Client> clients, List<Order> orders) {
+        this.context = context;
+        clientData = clients;
+        orderData = orders;
+        mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public int getCount() {
-        return mDataSource.size();
+        return orderData.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mDataSource.get(position);
+        return clientData.get(position);
     }
 
     @Override
@@ -47,12 +48,12 @@ public class ClientsAdapter extends BaseAdapter {
         TextView subtitleTextView = (TextView) rowView.findViewById(R.id.client_list_subtitle);
         TextView detailTextView = (TextView) rowView.findViewById(R.id.client_list_detail);
         ImageView thumbnailImageView = (ImageView) rowView.findViewById(R.id.client_list_thumbnail);
-        Clients client = (Clients) getItem(position);
+        Order order = orderData.get(position);
+        Client client = clientData.get(order.clientID);
 
-        titleTextView.setText(client.name);
-        subtitleTextView.setText(client.adress);
-        detailTextView.setText(client.deliveryDate);
-
+        titleTextView.setText(client.clientName);
+        subtitleTextView.setText(client.clientAdress);
+        detailTextView.setText(order.deliveryTime);
 
         return rowView;
     }

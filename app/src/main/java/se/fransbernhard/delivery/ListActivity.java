@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListActivity extends AppCompatActivity {
@@ -43,14 +42,14 @@ public class ListActivity extends AppCompatActivity {
         clients = dbHelper.getAllClients();
 
 
-        final ArrayList<Clients> kundLista = Clients.getKunderFromFile("kunder.json", this);
-        final ClientsAdapter adapter = new ClientsAdapter(this, kundLista);
+     //   final ArrayList<Clients> kundLista = Clients.getKunderFromFile("kunder.json", this);
+        final ClientsAdapter adapter = new ClientsAdapter(this, clients, ordersNotDelivered);
         myList.setAdapter(adapter);
         myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                                          @Override
-                                          public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-              Intent intent = new Intent(ListActivity.this, DetailActivity.class);
-              startActivity(intent);
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ListActivity.this, DetailActivity.class);
+                startActivity(intent);
               }
           }
         );
@@ -62,7 +61,6 @@ public class ListActivity extends AppCompatActivity {
         return true;
     }
 
-    // TODO: 2017-11-20 (JEAN)
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
