@@ -18,7 +18,7 @@ public class ListActivity extends AppCompatActivity {
 
     private ListView myList;
     private Toolbar toolbar;
-    private DBHelper dbHelper;
+    private DBHelper dbhelper;
     private SharedPreferences shared;
     private int amountOfOrders;
     private List<Order> ordersDelivered, ordersNotDelivered;
@@ -28,31 +28,67 @@ public class ListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
         myList = (ListView)findViewById(R.id.OrderLista);
         toolbar = (Toolbar) findViewById(R.id.myToolbar);
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
+
         // This will remove App name
 //        getSupportActionBar().setDisplayShowTitleEnabled(false);
         shared = getSharedPreferences("PREFERENCES",MODE_PRIVATE);
-        dbHelper = new DBHelper(this);
+        dbhelper = new DBHelper(this);
         amountOfOrders = shared.getInt("NUMBER_OF_ORDERS", 10);
-        ordersDelivered = dbHelper.getAllDeliveryStatus(1, amountOfOrders);
-        ordersNotDelivered = dbHelper.getAllDeliveryStatus(0, amountOfOrders);
-        clients = dbHelper.getAllClients();
+
+        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
+        dbhelper.addClients("mimi", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 14", 23412, "sthlm");
+        dbhelper.addClients("jeanmichel", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 15", 23412, "sthlm");
+        dbhelper.addClients("ria", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
+        dbhelper.addClients("peter", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
+        dbhelper.addClients("proust", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
+        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
+        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
+        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
+        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
+        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
+        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
+        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
+        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
+        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
+        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
+        dbhelper.addOrders(2345, 170304, 1);
+        dbhelper.addOrders(3333, 175555, 2);
+        dbhelper.addOrders(2333345, 66666, 3);
+        dbhelper.addOrders(2333345, 66666, 4);
+        dbhelper.addOrders(2333345, 66666, 5);
+        dbhelper.addOrders(2345, 170304, 6);
+        dbhelper.addOrders(3333, 175555, 6);
+        dbhelper.addOrders(2333345, 66666, 5);
+        dbhelper.addOrders(2333345, 66666, 3);
+        dbhelper.addOrders(2333345, 66666, 2);
+        dbhelper.addOrders(3333, 175555, 4);
+        dbhelper.addOrders(2333345, 66666, 3);
+        dbhelper.addOrders(2333345, 66666, 6);
+        dbhelper.addOrders(2333345, 66666, 2);
+
+        ordersDelivered = dbhelper.getAllDeliveryStatus(1, amountOfOrders);
+        ordersNotDelivered = dbhelper.getAllDeliveryStatus(0, amountOfOrders);
+        clients = dbhelper.getAllClients();
 
 
-     //   final ArrayList<Clients> kundLista = Clients.getKunderFromFile("kunder.json", this);
-        final ClientsAdapter adapter = new ClientsAdapter(this, clients, ordersNotDelivered);
-        myList.setAdapter(adapter);
+     // final ArrayList<Clients> kundLista = Clients.getKunderFromFile("kunder.json", this);
+        // TODO Create if statement connected to filter among Delivered and NotDelivered
+        final ClientsAdapter adapterNotDelivered = new ClientsAdapter(this, clients, ordersNotDelivered);
+        final ClientsAdapter adapterDelivered = new ClientsAdapter(this, clients, ordersDelivered);
+
+        myList.setAdapter(adapterNotDelivered);
         myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ListActivity.this, DetailActivity.class);
                 startActivity(intent);
-              }
-          }
-        );
+            }
+        });
     }
 
     @Override
