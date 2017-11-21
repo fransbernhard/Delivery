@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,25 +49,17 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // When upgrading the database
     }
+/*
 
-    /**
-     * Get all Orders from the database
-     * @param orderID - - where to start
-     * @param amount - - how many orders to get
-     * @return a list of orders
-     */
-    public List<Order> getLimitedOrders(int orderID, int amount){
+    public List<Order> getAllOrders(){
         List<Order> orderList = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
 
-        String selection = "orderID>=?";
-        String[] selectionArgs = new String[]{Integer.toString(orderID)};
-
-        Cursor c = db.query("Orders",null, selection, selectionArgs,null,null,null);
+        Cursor c = db.query("Orders",null, null, null,null,null,null);
 
         boolean success = c.moveToFirst();
         if(success) {
-            for (int i = 0; i < amount; i++) {
+            do {
                 Order order = new Order();
 
                 order.orderID = c.getInt(0);
@@ -79,10 +70,62 @@ public class DBHelper extends SQLiteOpenHelper {
 
                 orderList.add(order);
                 Log.d("SQL", order.orderID + "," + order.orderSum + "," + order.clientID);
-                if(!c.moveToNext()){
-                    break;
-                }
-            }
+            } while (c.moveToNext());
+        }
+        db.close();
+        return orderList;
+    }
+    */
+
+    public List<Client> getAllClients(){
+        List<Client> clientList = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor c = db.query("Clients",null, null, null,null,null,null);
+
+        boolean success = c.moveToFirst();
+        if(success) {
+            do {
+                Client client = new Client();
+
+                client.clientID = c.getInt(0);
+                client.clientName = c.getString(1);
+                client.contactPerson = c.getString(2);
+                client.contactNumber = c.getInt(3);
+                client.contactEmail = c.getString(4);
+                client.clientAdress = c.getString(5);
+                client.clientZipCode = c.getInt(6);
+                client.clientCity = c.getString(7);
+
+                clientList.add(client);
+            } while (c.moveToNext());
+        }
+        db.close();
+        return clientList;
+    }
+
+    public List<Order> getAllDeliveryStatus(int delivered, int limit) {
+        List<Order> orderList = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+
+        String selection = "delivered=?";
+        String[] selectionArgs = new String[] {Integer.toString(delivered)};
+
+        Cursor c = db.query("Orders", null, selection, selectionArgs, null, null, "deliveryTime ASC", Integer.toString(limit));
+
+        boolean success = c.moveToFirst();
+        if(success) {
+            do {
+                Order order = new Order();
+
+                order.orderID = c.getInt(0);
+                order.orderSum = c.getInt(1);
+                order.deliveryTime = c.getString(2);
+                order.delivered = c.getInt(3);
+                order.clientID = c.getInt(4);
+
+                orderList.add(order);
+            } while (c.moveToNext());
         }
         db.close();
         return orderList;

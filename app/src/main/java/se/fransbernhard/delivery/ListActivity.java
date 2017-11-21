@@ -1,6 +1,7 @@
 package se.fransbernhard.delivery;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,11 +13,17 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListActivity extends AppCompatActivity {
 
     private ListView myList;
     private Toolbar toolbar;
+    private DBHelper dbHelper;
+    private SharedPreferences shared;
+    private int amountOfOrders;
+    private List<Order> ordersDelivered, ordersNotDelivered;
+    private List<Client> clients;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +35,13 @@ public class ListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         // This will remove App name
 //        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        shared = getSharedPreferences("PREFERENCES",MODE_PRIVATE);
+        dbHelper = new DBHelper(this);
+        amountOfOrders = shared.getInt("NUMBER_OF_ORDERS", 10);
+        ordersDelivered = dbHelper.getAllDeliveryStatus(1, amountOfOrders);
+        ordersNotDelivered = dbHelper.getAllDeliveryStatus(0, amountOfOrders);
+        clients = dbHelper.getAllClients();
+
 
         final ArrayList<Clients> kundLista = Clients.getKunderFromFile("kunder.json", this);
         final ClientsAdapter adapter = new ClientsAdapter(this, kundLista);
