@@ -5,12 +5,45 @@ package se.fransbernhard.delivery;
  */
 
 class Client {
-    public int clientID;
-    public String clientName;
-    public String contactPerson;
-    public int contactNumber;
-    public String contactEmail;
-    public String clientAdress;
-    public int clientZipCode;
-    public String clientCity;
+    private int clientID;
+    private String clientName;
+    private String contactPerson;
+    private int contactNumber;
+    private String contactEmail;
+    private String clientAdress;
+    private int clientZipCode;
+
+    public int getClientID() {
+        return clientID;
+    }
+
+    public String getClientName() {
+        return clientName;
+    }
+
+    public String getContactPerson() {
+        return contactPerson;
+    }
+
+    public int getContactNumber() {
+        return contactNumber;
+    }
+
+    public String getContactEmail() {
+        return contactEmail;
+    }
+
+    public String getClientAdress() {
+        return clientAdress;
+    }
+
+    public int getClientZipCode() {
+        return clientZipCode;
+    }
+
+    public String getClientCity() {
+        return clientCity;
+    }
+
+    private String clientCity;
 }
