@@ -8,9 +8,30 @@ class Order {
     private int orderID;
     private int orderSum;
     private String deliveryTime;
-    private int delivered;
+    public int delivered;
+
+    public void setOrderID(int orderID) {
+        this.orderID = orderID;
+    }
+
+    public void setOrderSum(int orderSum) {
+        this.orderSum = orderSum;
+    }
+
+    public void setDeliveryTime(String deliveryTime) {
+        this.deliveryTime = deliveryTime;
+    }
+
+    public void setDelivered(int delivered) {
+        this.delivered = delivered;
+    }
+
+    public void setClientID(int clientID) {
+        this.clientID = clientID;
+    }
 
     public int getOrderID() {
+
         return orderID;
     }
 

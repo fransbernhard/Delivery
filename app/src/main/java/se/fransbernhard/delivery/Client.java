@@ -13,7 +13,40 @@ class Client {
     private String clientAdress;
     private int clientZipCode;
 
+    public void setClientID(int clientID) {
+        this.clientID = clientID;
+    }
+
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
+    }
+
+    public void setContactPerson(String contactPerson) {
+        this.contactPerson = contactPerson;
+    }
+
+    public void setContactNumber(int contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
+    }
+
+    public void setClientAdress(String clientAdress) {
+        this.clientAdress = clientAdress;
+    }
+
+    public void setClientZipCode(int clientZipCode) {
+        this.clientZipCode = clientZipCode;
+    }
+
+    public void setClientCity(String clientCity) {
+        this.clientCity = clientCity;
+    }
+
     public int getClientID() {
+
         return clientID;
     }
 

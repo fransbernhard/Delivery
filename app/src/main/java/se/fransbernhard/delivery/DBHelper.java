@@ -88,14 +88,14 @@ public class DBHelper extends SQLiteOpenHelper {
             do {
                 Client client = new Client();
 
-                client.clientID = c.getInt(0);
-                client.clientName = c.getString(1);
-                client.contactPerson = c.getString(2);
-                client.contactNumber = c.getInt(3);
-                client.contactEmail = c.getString(4);
-                client.clientAdress = c.getString(5);
-                client.clientZipCode = c.getInt(6);
-                client.clientCity = c.getString(7);
+                client.setClientID(c.getInt(0));
+                client.setClientName(c.getString(1));
+                client.setContactPerson(c.getString(2));
+                client.setContactNumber(c.getInt(3));
+                client.setContactEmail(c.getString(4));
+                client.setClientAdress(c.getString(5));
+                client.setClientZipCode(c.getInt(6));
+                client.setClientCity(c.getString(7));
 
                 clientList.add(client);
             } while (c.moveToNext());
@@ -118,11 +118,11 @@ public class DBHelper extends SQLiteOpenHelper {
             do {
                 Order order = new Order();
 
-                order.orderID = c.getInt(0);
-                order.orderSum = c.getInt(1);
-                order.deliveryTime = c.getString(2);
-                order.delivered = c.getInt(3);
-                order.clientID = c.getInt(4);
+                order.setOrderID(c.getInt(0));
+                order.setOrderSum(c.getInt(1));
+                order.setDeliveryTime(c.getString(2));
+                order.setDelivered(c.getInt(3));
+                order.setClientID(c.getInt(4));
 
                 orderList.add(order);
             } while (c.moveToNext());
@@ -145,7 +145,7 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put("delivered", newStatus);
 
         String selection = "orderID=?";
-        String[] selectionArgs = new String[]{Integer.toString(order.orderID)};
+        String[] selectionArgs = new String[]{Integer.toString(order.getOrderID())};
 
         int rows = db.update("Orders", cv, selection, selectionArgs);
         db.close();
@@ -167,14 +167,14 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor c = db.query("Clients",null, selection, selectionArgs,null,null,null);
 
         Client client = new Client();
-        client.clientID = c.getInt(0);
-        client.clientName = c.getString(1);
-        client.contactPerson = c.getString(2);
-        client.contactNumber = c.getInt(3);
-        client.contactEmail = c.getString(4);
-        client.clientAdress = c.getString(5);
-        client.clientZipCode = c.getInt(6);
-        client.clientCity = c.getString(7);
+        client.setClientID(c.getInt(0));
+        client.setClientName(c.getString(1));
+        client.setContactPerson(c.getString(2));
+        client.setContactNumber(c.getInt(3));
+        client.setContactEmail(c.getString(4));
+        client.setClientAdress(c.getString(5));
+        client.setClientZipCode(c.getInt(6));
+        client.setClientCity(c.getString(7));
 
         db.close();
         return client;
