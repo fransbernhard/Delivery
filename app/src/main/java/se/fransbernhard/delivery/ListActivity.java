@@ -23,6 +23,7 @@ public class ListActivity extends AppCompatActivity {
     private int amountOfOrders;
     private List<Order> ordersDelivered, ordersNotDelivered;
     private List<Client> clients;
+    private boolean showingNotDelivered;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,21 +77,8 @@ public class ListActivity extends AppCompatActivity {
         ordersNotDelivered = dbhelper.getAllDeliveryStatus(0, amountOfOrders);
         clients = dbhelper.getAllClients();
 
+        setAdapter();
 
-     // final ArrayList<Clients> kundLista = Clients.getKunderFromFile("kunder.json", this);
-        // TODO Create if statement connected to filter among Delivered and NotDelivered
-        final ClientsAdapter adapterNotDelivered = new ClientsAdapter(this, clients, ordersNotDelivered);
-        final ClientsAdapter adapterDelivered = new ClientsAdapter(this, clients, ordersDelivered);
-
-        myList.setAdapter(adapterNotDelivered);
-        myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ListActivity.this, DetailActivity.class);
-                intent.putExtra("ORDER_ID", ordersNotDelivered.get(position).getOrderID());
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
@@ -120,7 +108,38 @@ public class ListActivity extends AppCompatActivity {
         editor.putInt("CURRENT_NUMBER_OF_ORDERS", amountOfOrders);
         editor.commit();
         ordersNotDelivered = dbhelper.getAllDeliveryStatus(0, amountOfOrders);
+        setAdapter();
+    }
 
+    private void setAdapter() {
+        // final ArrayList<Clients> kundLista = Clients.getKunderFromFile("kunder.json", this);
+
+        final ClientsAdapter adapterNotDelivered = new ClientsAdapter(this, clients, ordersNotDelivered);
+        final ClientsAdapter adapterDelivered = new ClientsAdapter(this, clients, ordersDelivered);
+
+        if (showingNotDelivered)
+            myList.setAdapter(adapterNotDelivered);
+        else
+            myList.setAdapter(adapterDelivered);
+
+        myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ListActivity.this, DetailActivity.class);
+                intent.putExtra("ORDER_ID", ordersNotDelivered.get(position).getOrderID());
+                startActivity(intent);
+            }
+        });
+    }
+
+    public void clickedNotDelivered(View v) {
+        showingNotDelivered = true;
+        setAdapter();
+    }
+
+    public void clickedDelivered(View v) {
+        showingNotDelivered = false;
+        setAdapter();
     }
 
 }
