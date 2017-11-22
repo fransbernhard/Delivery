@@ -92,8 +92,8 @@ public class DetailActivity extends AppCompatActivity {
             SharedPreferences.Editor editor = shared.edit();
             editor.putInt("CURRENT_NUMBER_OF_ORDERS", currentNumberOfOrders - 1);
             editor.commit();
+            dbHelper.updateDelivered(order);
         }
-        dbHelper.updateDelivered(order);
         deliverButton.setEnabled(false);
     }
 
