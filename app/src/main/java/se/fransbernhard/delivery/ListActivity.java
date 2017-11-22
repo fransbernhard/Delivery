@@ -38,7 +38,8 @@ public class ListActivity extends AppCompatActivity {
 //        getSupportActionBar().setDisplayShowTitleEnabled(false);
         shared = getSharedPreferences("PREFERENCES",MODE_PRIVATE);
         dbhelper = new DBHelper(this);
-        amountOfOrders = shared.getInt("NUMBER_OF_ORDERS", 10);
+
+        amountOfOrders = shared.getInt("CURRENT_NUMBER_OF_ORDERS", 10);
 
         dbhelper.addClients("IT Högskolan", "Markus kontakt", 0734526717, "markus@me.se", "markus vägen 13", 23412, "malmö");
         dbhelper.addClients("TicTale", "Mimi kontakt", 0734526717, "mimi@me.se", "mimi vägen 14", 23412, "sthlm");
@@ -108,8 +109,18 @@ public class ListActivity extends AppCompatActivity {
                 return true;
             case R.id.refreshButton:
                 // TODO: 2017-11-20 (JEAN) Plocka hem nya ordrar från databasen
+                refreshList();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void refreshList() {
+        amountOfOrders = shared.getInt("NUMBER_OF_ORDERS", 10);
+        SharedPreferences.Editor editor = shared.edit();
+        editor.putInt("CURRENT_NUMBER_OF_ORDERS", amountOfOrders);
+        editor.commit();
+        ordersNotDelivered = dbhelper.getAllDeliveryStatus(0, amountOfOrders);
+
     }
 
 }

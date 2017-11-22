@@ -175,6 +175,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="@color/colorButton"
+        android:onClick="clickSave"
         android:text="Levererad"
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"

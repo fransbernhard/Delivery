@@ -1,22 +1,27 @@
 package se.fransbernhard.delivery;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class DetailActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
+    private SharedPreferences shared;
     private DBHelper dbHelper;
     private Order order;
     private Client client;
     private TextView clientName, clientID, deliveryDate, orderID,
                     orderSum, contactPerson, contactNumber, email, address, zipCode;
+    private Button deliverButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,8 @@ public class DetailActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         // This will remove App name
 //        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        deliverButton = (Button)findViewById(R.id.LeveransButton);
+        shared = getSharedPreferences("PREFERENCES",MODE_PRIVATE);
         dbHelper = new DBHelper(this);
         Intent intent = getIntent();
         order = dbHelper.getOrder(intent.getIntExtra("ORDER_ID", 1));
@@ -72,6 +79,17 @@ public class DetailActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void clickSave(View v) {
+        if (order.delivered==0) {
+            int currentNumberOfOrders = shared.getInt("CURRENT_NUMBER_OF_ORDERS", 10);
+            SharedPreferences.Editor editor = shared.edit();
+            editor.putInt("CURRENT_NUMBER_OF_ORDERS", currentNumberOfOrders - 1);
+            editor.commit();
+        }
+        dbHelper.updateDelivered(order);
+        deliverButton.setEnabled(false);
     }
 
 }
