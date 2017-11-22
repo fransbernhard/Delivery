@@ -131,6 +131,33 @@ public class DBHelper extends SQLiteOpenHelper {
         return orderList;
     }
 
+    public List<Order> getAllDeliveryStatus(int delivered) {
+        List<Order> orderList = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+
+        String selection = "delivered=?";
+        String[] selectionArgs = new String[] {Integer.toString(delivered)};
+
+        Cursor c = db.query("Orders", null, selection, selectionArgs, null, null, "deliveryTime ASC", null);
+
+        boolean success = c.moveToFirst();
+        if(success) {
+            do {
+                Order order = new Order();
+
+                order.setOrderID(c.getInt(0));
+                order.setOrderSum(c.getInt(1));
+                order.setDeliveryTime(c.getString(2));
+                order.setDelivered(c.getInt(3));
+                order.setClientID(c.getInt(4));
+
+                orderList.add(order);
+            } while (c.moveToNext());
+        }
+        db.close();
+        return orderList;
+    }
+
     /**
      * Update delivered field in database
      * @params order - - object

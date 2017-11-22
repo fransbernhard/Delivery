@@ -69,6 +69,7 @@ public class PreferenceActivity extends AppCompatActivity {
         editor.putString("PHONE_NUMBER",editPhoneNr.getText().toString());
         editor.putString("EMAIL",editEmail.getText().toString());
         editor.putInt("NUMBER_OF_ORDERS", amountOfOrders);
+        editor.putInt("CURRENT_NUMBER_OF_ORDERS", amountOfOrders);
         editor.putBoolean("SEND_INFORMATION",sendConfirmation.isChecked());
         editor.commit();
 

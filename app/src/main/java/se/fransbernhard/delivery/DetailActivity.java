@@ -60,6 +60,11 @@ public class DetailActivity extends AppCompatActivity {
         email.setText("Email: " + client.getContactEmail());
         address.setText("Adress: " + client.getClientAdress());
         zipCode.setText("Zip and City: " + Integer.toString(client.getClientZipCode()) + " " + client.getClientCity());
+
+        if (order.delivered==1)
+            deliverButton.setEnabled(false);
+        else
+            deliverButton.setEnabled(true);
     }
 
     @Override

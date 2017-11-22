@@ -24,6 +24,7 @@ public class ListActivity extends AppCompatActivity {
     private List<Order> ordersDelivered, ordersNotDelivered;
     private List<Client> clients;
     private boolean showingNotDelivered;
+    private ClientsAdapter adapterNotDelivered, adapterDelivered;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +35,13 @@ public class ListActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.myToolbar);
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
-
         // This will remove App name
 //        getSupportActionBar().setDisplayShowTitleEnabled(false);
         shared = getSharedPreferences("PREFERENCES",MODE_PRIVATE);
         dbhelper = new DBHelper(this);
 
-        amountOfOrders = shared.getInt("CURRENT_NUMBER_OF_ORDERS", 10);
+        amountOfOrders = shared.getInt("CURRENT_NUMBER_OF_ORDERS", shared.getInt("NUMBER_OF_ORDERS", 10));
+        showingNotDelivered = true;
 
         dbhelper.addClients("IT Högskolan", "Markus kontakt", 0734526717, "markus@me.se", "markus vägen 13", 23412, "malmö");
         dbhelper.addClients("TicTale", "Mimi kontakt", 0734526717, "mimi@me.se", "mimi vägen 14", 23412, "sthlm");
@@ -73,7 +74,7 @@ public class ListActivity extends AppCompatActivity {
         dbhelper.addOrders(2333, 170303, 6);
         dbhelper.addOrders(2333, 170202, 2);
 
-        ordersDelivered = dbhelper.getAllDeliveryStatus(1, amountOfOrders);
+        ordersDelivered = dbhelper.getAllDeliveryStatus(1);
         ordersNotDelivered = dbhelper.getAllDeliveryStatus(0, amountOfOrders);
         clients = dbhelper.getAllClients();
 
@@ -112,10 +113,8 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void setAdapter() {
-        // final ArrayList<Clients> kundLista = Clients.getKunderFromFile("kunder.json", this);
-
-        final ClientsAdapter adapterNotDelivered = new ClientsAdapter(this, clients, ordersNotDelivered);
-        final ClientsAdapter adapterDelivered = new ClientsAdapter(this, clients, ordersDelivered);
+        adapterNotDelivered = new ClientsAdapter(this, clients, ordersNotDelivered);
+        adapterDelivered = new ClientsAdapter(this, clients, ordersDelivered);
 
         if (showingNotDelivered)
             myList.setAdapter(adapterNotDelivered);
