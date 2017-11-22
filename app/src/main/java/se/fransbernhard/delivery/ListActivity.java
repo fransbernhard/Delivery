@@ -66,7 +66,6 @@ public class ListActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.refreshButton:
-                // TODO: 2017-11-20 (JEAN) Plocka hem nya ordrar från databasen
                 refreshList();
         }
         return super.onOptionsItemSelected(item);
@@ -94,7 +93,11 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ListActivity.this, DetailActivity.class);
-                intent.putExtra("ORDER_ID", ordersNotDelivered.get(position).getOrderID());
+             //   intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                if (showingNotDelivered)
+                    intent.putExtra("ORDER_ID", ordersNotDelivered.get(position).getOrderID());
+                else
+                    intent.putExtra("ORDER_ID", ordersDelivered.get(position).getOrderID());
                 startActivity(intent);
             }
         });
