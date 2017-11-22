@@ -43,37 +43,6 @@ public class ListActivity extends AppCompatActivity {
         amountOfOrders = shared.getInt("CURRENT_NUMBER_OF_ORDERS", shared.getInt("NUMBER_OF_ORDERS", 10));
         showingNotDelivered = true;
 
-        dbhelper.addClients("IT Högskolan", "Markus kontakt", 0734526717, "markus@me.se", "markus vägen 13", 23412, "malmö");
-        dbhelper.addClients("TicTale", "Mimi kontakt", 0734526717, "mimi@me.se", "mimi vägen 14", 23412, "sthlm");
-        dbhelper.addClients("Wordpress", "Jean kontakt", 0734526717, "jean@me.se", "jean vägen 15", 23412, "göteborg");
-        dbhelper.addClients("Spotify", "August kontakt", 0734526717, "august@me.se", "august vägen 13", 23412, "lund");
-        dbhelper.addClients("Apple", "Ria kontakt", 0734526717, "ria@me.se", "ria vägen 13", 23412, "österlen");
-        dbhelper.addClients("proust", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
-        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
-        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
-        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
-        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
-        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
-        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
-        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
-        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
-        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
-        dbhelper.addClients("August", "Mimi kontakt", 0734526717, "mimi@me.se", "södra vägen 13", 23412, "sthlm");
-        dbhelper.addOrders(2345, 170304, 10);
-        dbhelper.addOrders(3333, 170201, 7);
-        dbhelper.addOrders(2333, 160807, 3);
-        dbhelper.addOrders(2333, 171201, 6);
-        dbhelper.addOrders(2333, 170601, 5);
-        dbhelper.addOrders(2345, 170304, 6);
-        dbhelper.addOrders(3333, 170404, 7);
-        dbhelper.addOrders(2333, 170808, 5);
-        dbhelper.addOrders(2333, 170909, 3);
-        dbhelper.addOrders(2333, 170606, 7);
-        dbhelper.addOrders(3333, 170505, 4);
-        dbhelper.addOrders(2333, 170404, 3);
-        dbhelper.addOrders(2333, 170303, 6);
-        dbhelper.addOrders(2333, 170202, 2);
-
         ordersDelivered = dbhelper.getAllDeliveryStatus(1);
         ordersNotDelivered = dbhelper.getAllDeliveryStatus(0, amountOfOrders);
         clients = dbhelper.getAllClients();
