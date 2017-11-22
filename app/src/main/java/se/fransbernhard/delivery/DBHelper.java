@@ -6,6 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,40 +18,51 @@ import java.util.List;
  */
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final int DB_VERSION = 1;
+    public static final int DB_VERSION = 2;
+    private Context context;
 
     public DBHelper(Context context) {
         super(context, "Delivered", null, DB_VERSION);
+        this.context = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         // When creating the database
-        String sqlOrder = "CREATE TABLE Orders ( " +
-                "orderID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "orderSum FLOAT NOT NULL," +
-                "deliveryTime INTEGER," +
-                "delivered INTEGER," +
-                "fk_clientID INTEGER," +
-                "FOREIGN KEY(fk_clientID) REFERENCES Client(clientID));";
+        try {
+            insertFromFile(R.raw.test, db);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-        String sqlClient = "CREATE TABLE Clients ( " +
-                "clientID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "clientName VARCHAR(25)," +
-                "contactPerson VARCHAR(25)," +
-                "contactNumber INTEGER," +
-                "contactEmail VARCHAR(30)," +
-                "clientAdress VARCHAR(25)," +
-                "clientZipCode INTEGER," +
-                "clientCity VARCHAR(20));";
+    public int insertFromFile(int resourceId, SQLiteDatabase db) throws IOException {
+        int result = 0;
 
-        db.execSQL(sqlOrder);
-        db.execSQL(sqlClient);
+
+        InputStream insertStream = context.getResources().openRawResource(resourceId);
+        BufferedReader insertReader = new BufferedReader(new InputStreamReader(insertStream));
+
+        String insertStatment = "";
+        while (insertReader.ready()) {
+            insertStatment += insertReader.readLine();
+            result ++;
+        }
+        insertReader.close();
+        String[] queries = insertStatment.split(";");
+        for(String query : queries) {
+            db.execSQL(query);
+        }
+
+        return result;
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // When upgrading the database
+        if(oldVersion == 1 && newVersion == 2){
+            onCreate(db);
+        }
     }
 /*
 
