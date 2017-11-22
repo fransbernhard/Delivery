@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">Delivery</string>
+    <string name="app_name">PostVäst</string>
+    <string name="settings_name">Inställningar</string>
     <string name="ejLeveradeButton">Ej Leverade</string>
     <string name="levereradeButton">Levererade</string>
-    <string name="settingsButton">Settigns</string>
-    <string name="refreshButton">Refresh</string>
-    <string name="listButton">ListView</string>
+    <string name="settingsButton">Inställningar</string>
+    <string name="refreshButton">Uppdatera</string>
+    <string name="listButton">Orders</string>
 </resources>

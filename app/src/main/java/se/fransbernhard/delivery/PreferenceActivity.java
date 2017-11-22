@@ -39,9 +39,8 @@ public class PreferenceActivity extends AppCompatActivity {
         amountOfOrders = 10;
         toolbar = (Toolbar) findViewById(R.id.myToolbar);
         toolbar.setTitleTextColor(Color.WHITE);
+        toolbar.setTitle(getResources().getString(R.string.settings_name));
         setSupportActionBar(toolbar);
-        // This will remove App name
-//        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         setupSeekBar();
 
