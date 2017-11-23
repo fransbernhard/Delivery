@@ -60,7 +60,9 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // When upgrading the database
-        if(oldVersion == 1 && newVersion == 2){
+        if(oldVersion < newVersion){
+            db.delete("Orders", null, null);
+            db.delete("Clients", null, null);
             onCreate(db);
         }
     }
