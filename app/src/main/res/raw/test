@@ -7,9 +7,9 @@ CREATE TABLE IF NOT EXISTS `Orders` (
 	`fk_clientID`	INTEGER,
 	FOREIGN KEY(`fk_clientID`) REFERENCES `Clients`(`clientID`)
 );
-INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (1,242,171125,0,1);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (1,242,171125,1,1);
 INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (2,12349,180225,0,2);
-INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (3,5463,171202,0,3);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (3,5463,171202,1,3);
 INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (4,729,171205,0,4);
 INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (5,192847,171223,0,5);
 INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (6,2549,171126,0,6);
@@ -17,7 +17,11 @@ INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUE
 INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (8,666,171115,0,8);
 INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (9,35482,180105,0,9);
 INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (10,96849,171224,0,10);
-INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (11,453628,171110,1,11);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (11,498628,171110,0,4);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (12,666,171115,0,7);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (13,35482,180105,0,2);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (14,968,180224,0,8);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (15,3628,171210,0,5);
 CREATE TABLE IF NOT EXISTS `Clients` (
 	`clientID`	INTEGER PRIMARY KEY AUTOINCREMENT,
 	`clientName`	TEXT,
