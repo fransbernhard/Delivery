@@ -81,8 +81,8 @@ public class PreferenceActivity extends AppCompatActivity {
         seekBarHowMany.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                amountOfOrders = progress;
-                textAmountOfOrders.setText(Integer.toString(progress));
+                amountOfOrders = progress + 10;
+                textAmountOfOrders.setText(Integer.toString(amountOfOrders));
             }
 
             @Override
@@ -96,8 +96,8 @@ public class PreferenceActivity extends AppCompatActivity {
             }
         });
 
-        seekBarHowMany.setMin(10);
-        seekBarHowMany.setMax(50);
+        seekBarHowMany.setMin(0);
+        seekBarHowMany.setMax(20);
     }
 
     private void setupAsSaved() {
