@@ -49,7 +49,7 @@ public class ClientsAdapter extends BaseAdapter {
         TextView detailTextView = (TextView) rowView.findViewById(R.id.client_list_detail);
         ImageView thumbnailImageView = (ImageView) rowView.findViewById(R.id.client_list_thumbnail);
         Order order = orderData.get(position);
-        Client client = clientData.get(order.getClientID());
+        Client client = clientData.get(order.getClientID()-1);
 
         titleTextView.setText(client.getClientName());
         subtitleTextView.setText(client.getClientAdress());

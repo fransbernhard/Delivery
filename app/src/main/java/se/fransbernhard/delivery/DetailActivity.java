@@ -37,7 +37,7 @@ public class DetailActivity extends AppCompatActivity {
         dbHelper = new DBHelper(this);
         Intent intent = getIntent();
         order = dbHelper.getOrder(intent.getIntExtra("ORDER_ID", 1));
-        client = dbHelper.getClient(order.getClientID()+1);
+        client = dbHelper.getClient(order.getClientID());
 
         clientName = (TextView)findViewById(R.id.clientName);
         clientID = (TextView)findViewById(R.id.clientID);
