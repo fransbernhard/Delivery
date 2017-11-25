@@ -18,7 +18,7 @@ import java.util.List;
  */
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final int DB_VERSION = 2;
+    public static final int DB_VERSION = 3;
     private Context context;
 
     public DBHelper(Context context) {
@@ -108,10 +108,10 @@ public class DBHelper extends SQLiteOpenHelper {
                 client.setClientID(c.getInt(0));
                 client.setClientName(c.getString(1));
                 client.setContactPerson(c.getString(2));
-                client.setContactNumber(c.getInt(3));
+                client.setContactNumber(c.getString(3));
                 client.setContactEmail(c.getString(4));
                 client.setClientAdress(c.getString(5));
-                client.setClientZipCode(c.getInt(6));
+                client.setClientZipCode(c.getString(6));
                 client.setClientCity(c.getString(7));
 
                 clientList.add(client);
@@ -215,10 +215,10 @@ public class DBHelper extends SQLiteOpenHelper {
         client.setClientID(c.getInt(0));
         client.setClientName(c.getString(1));
         client.setContactPerson(c.getString(2));
-        client.setContactNumber(c.getInt(3));
+        client.setContactNumber(c.getString(3));
         client.setContactEmail(c.getString(4));
         client.setClientAdress(c.getString(5));
-        client.setClientZipCode(c.getInt(6));
+        client.setClientZipCode(c.getString(6));
         client.setClientCity(c.getString(7));
 
         db.close();

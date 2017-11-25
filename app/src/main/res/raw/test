@@ -26,14 +26,14 @@ CREATE TABLE IF NOT EXISTS `Clients` (
 	`clientID`	INTEGER PRIMARY KEY AUTOINCREMENT,
 	`clientName`	TEXT,
 	`contactPerson`	TEXT,
-	`contactNumber`	INTEGER,
+	`contactNumber`	TEXT,
 	`contactEmail`	TEXT,
 	`clientAdress`	TEXT,
-	`clientZipCode`	INTEGER,
+	`clientZipCode`	TEXT,
 	`clientCity`	TEXT
 );
-INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity) VALUES (1,'Sven Svensson','Sven Svensson','46 738144093 ','sven.svensson@gmail.com','Södra vägen 17','411 35','Göteborg');
-INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity) VALUES (2,'Spotify','Glen Hysén','031 131313','glen@spotify.com','Ullevi vägen 45','411 34','Göteborg');
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity) VALUES (1,'Sven Svensson','Sven Svensson','46 738144093 ','sven.svensson@gmail.com','Södra vägen 17','41135','Göteborg');
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity) VALUES (2,'Spotify','Glen Hysén','031 131313','glen@spotify.com','Ullevi vägen 45','41134','Göteborg');
 INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity) VALUES (3,'Volvo','Per Person','031 590000','per@volvo.se','Volvo gatan 6','423 56','Torslanda');
 INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity) VALUES (4,'Birgit Nilsson','Birgit Nilsson','0322 621225','birgit.nilsson@hotmail.com','Kyrkogatan 1','447 33','Vårgårda');
 INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity) VALUES (5,'Interflora','Carin Svensson','46 324567890','carin@interflora.se','Postgatan 26','411 06','Göteborg');

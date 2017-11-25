@@ -8,10 +8,10 @@ class Client {
     private int clientID;
     private String clientName;
     private String contactPerson;
-    private int contactNumber;
+    private String contactNumber;
     private String contactEmail;
     private String clientAdress;
-    private int clientZipCode;
+    private String clientZipCode;
 
     public void setClientID(int clientID) {
         this.clientID = clientID;
@@ -25,7 +25,7 @@ class Client {
         this.contactPerson = contactPerson;
     }
 
-    public void setContactNumber(int contactNumber) {
+    public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
 
@@ -37,7 +37,7 @@ class Client {
         this.clientAdress = clientAdress;
     }
 
-    public void setClientZipCode(int clientZipCode) {
+    public void setClientZipCode(String clientZipCode) {
         this.clientZipCode = clientZipCode;
     }
 
@@ -58,7 +58,7 @@ class Client {
         return contactPerson;
     }
 
-    public int getContactNumber() {
+    public String getContactNumber() {
         return contactNumber;
     }
 
@@ -70,7 +70,7 @@ class Client {
         return clientAdress;
     }
 
-    public int getClientZipCode() {
+    public String getClientZipCode() {
         return clientZipCode;
     }
 

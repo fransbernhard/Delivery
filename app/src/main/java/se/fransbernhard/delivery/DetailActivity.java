@@ -56,10 +56,10 @@ public class DetailActivity extends AppCompatActivity {
         orderID.setText("Order ID: " + Integer.toString(order.getOrderID()));
         orderSum.setText("Ordersum: " + Integer.toString(order.getOrderSum()) + " kr");
         contactPerson.setText("Contactperson: " + client.getContactPerson());
-        contactNumber.setText("Contactnumber: " + Integer.toString(client.getContactNumber()));
+        contactNumber.setText("Contactnumber: " + client.getContactNumber());
         email.setText("Email: " + client.getContactEmail());
         address.setText("Adress: " + client.getClientAdress());
-        zipCode.setText("Zip and City: " + Integer.toString(client.getClientZipCode()) + " " + client.getClientCity());
+        zipCode.setText("Zip and City: " + client.getClientZipCode() + " " + client.getClientCity());
 
         if (order.delivered==1)
             deliverButton.setEnabled(false);
