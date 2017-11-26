@@ -21,6 +21,18 @@
         android:layout_height="52dp"
         android:onClick="clickedNotDelivered"
         android:text="@string/ejLeveradeButton"
+        android:background="@color/colorButtonfaded"
+        android:textColor="@android:color/background_light"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myToolbar" />
+
+    <TextView
+        android:id="@+id/EjLevText"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="192dp"
+        android:layout_height="52dp"
+        android:text="@string/ejLeveradeButton"
         android:textColor="@color/colorButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/myToolbar" />
@@ -34,6 +46,20 @@
         android:onClick="clickedDelivered"
         android:text="@string/levereradeButton"
         android:textColor="@android:color/background_light"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/EjLevButton"
+        app:layout_constraintTop_toBottomOf="@+id/myToolbar" />
+
+    <TextView
+        android:id="@+id/LevText"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="192dp"
+        android:layout_height="52dp"
+        android:text="@string/levereradeButton"
+        android:textColor="@color/colorButton"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/EjLevButton"

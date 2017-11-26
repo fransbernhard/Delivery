@@ -10,7 +10,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -25,6 +27,11 @@ public class ListActivity extends AppCompatActivity {
     private List<Client> clients;
     private boolean showingNotDelivered;
     private ClientsAdapter adapterNotDelivered, adapterDelivered;
+    private Button deliverd;
+    private Button unDeliverd;
+    private TextView deliverdText;
+    private TextView unDeliverdText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +53,12 @@ public class ListActivity extends AppCompatActivity {
         ordersDelivered = dbhelper.getAllDeliveryStatus(1);
         ordersNotDelivered = dbhelper.getAllDeliveryStatus(0, amountOfOrders);
         clients = dbhelper.getAllClients();
+
+        deliverd = findViewById(R.id.LevButton);
+        deliverdText = findViewById(R.id.LevText);
+        unDeliverd = findViewById(R.id.EjLevButton);
+        unDeliverdText = findViewById(R.id.EjLevText);
+
 
         setAdapter();
 
@@ -105,11 +118,22 @@ public class ListActivity extends AppCompatActivity {
 
     public void clickedNotDelivered(View v) {
         showingNotDelivered = true;
+
+        unDeliverd.setVisibility(View.INVISIBLE);
+        unDeliverdText.setVisibility(View.VISIBLE);
+        deliverd.setVisibility(View.VISIBLE);
+        deliverdText.setVisibility(View.INVISIBLE);
+
         setAdapter();
     }
 
     public void clickedDelivered(View v) {
         showingNotDelivered = false;
+
+        deliverd.setVisibility(View.INVISIBLE);
+        deliverdText.setVisibility(View.VISIBLE);
+        unDeliverd.setVisibility(View.VISIBLE);
+        unDeliverdText.setVisibility(View.INVISIBLE);
         setAdapter();
     }
 
