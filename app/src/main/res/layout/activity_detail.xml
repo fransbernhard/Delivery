@@ -31,6 +31,7 @@
         android:layout_height="22dp"
         android:layout_marginTop="8dp"
         android:text="IT-HÖGSKOLAN"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/Kundicon"
         app:layout_constraintTop_toTopOf="@+id/Kundicon" />
@@ -39,6 +40,7 @@
         android:id="@+id/clientID"
         android:layout_width="238dp"
         android:layout_height="22dp"
+        android:layout_marginTop="4dp"
         android:text="Kundnummer 123456789"
         app:layout_constraintStart_toEndOf="@+id/Kundicon"
         app:layout_constraintTop_toBottomOf="@+id/clientName" />
@@ -47,7 +49,6 @@
         android:id="@+id/deliveryDate"
         android:layout_width="238dp"
         android:layout_height="22dp"
-        android:layout_marginTop="4dp"
         android:text="Leverans bokad 13/12 kl 14:00"
         app:layout_constraintStart_toEndOf="@+id/Kundicon"
         app:layout_constraintTop_toBottomOf="@+id/clientID" />

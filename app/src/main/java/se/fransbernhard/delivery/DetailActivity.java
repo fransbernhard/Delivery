@@ -50,16 +50,16 @@ public class DetailActivity extends AppCompatActivity {
         address = (TextView)findViewById(R.id.address);
         zipCode = (TextView)findViewById(R.id.zipCode);
 
-        clientName.setText("Clientname:" + client.getClientName());
+        clientName.setText(client.getClientName());
         clientID.setText("ClientID: " + Integer.toString(client.getClientID()));
         deliveryDate.setText("Delivery date: " + order.getDeliveryTime());
         orderID.setText("Order ID: " + Integer.toString(order.getOrderID()));
         orderSum.setText("Ordersum: " + Integer.toString(order.getOrderSum()) + " kr");
-        contactPerson.setText("Contactperson: " + client.getContactPerson());
+        contactPerson.setText(client.getContactPerson());
         contactNumber.setText("Contactnumber: " + client.getContactNumber());
         email.setText("Email: " + client.getContactEmail());
-        address.setText("Adress: " + client.getClientAdress());
-        zipCode.setText("Zip and City: " + client.getClientZipCode() + " " + client.getClientCity());
+        address.setText(client.getClientAdress());
+        zipCode.setText(client.getClientZipCode() + " " + client.getClientCity());
 
         deliverButtonHide();
     }
