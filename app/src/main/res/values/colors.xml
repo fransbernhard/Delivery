@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#616161</color>
-    <color name="colorPrimaryDark">#2D2D2D</color>
-    <color name="colorAccent">#AAFA6BCB</color>
-    <color name="colorButton">#FA6BCB</color>
-    <color name="colorButtonfaded">#AAFA6BCB</color>
+    <color name="colorPrimaryDark">#2d2d2d</color>
+    <color name="colorAccent">#aafa6bcb</color>
+    <color name="colorButton">#fa6bcb</color>
+    <color name="colorStart">#42a5f5</color>
+    <color name="colorButtonfaded">#aafa6bcb</color>
     <color name="colorToolbarTitle">#FFFFFF</color>
-    <!--Colors for StartActivity-->
-    <color name="colorStartBar">#616161</color>
-    <color name="colorEnd">#C48b9F</color>
-    <color name="colorCenter">#F8BBD0</color>
-    <color name="colorStart">#FFEEFF</color>
-
 </resources>
