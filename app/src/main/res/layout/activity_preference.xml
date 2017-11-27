@@ -18,8 +18,8 @@
         android:id="@+id/textHowMany"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
         android:text="Hur många ordrar ska genereras vid uppdatering?"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/myToolbar"
@@ -27,9 +27,9 @@
 
     <SeekBar
         android:id="@+id/seekBarHowMany"
-        android:layout_width="108dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="@+id/textHowMany"
         app:layout_constraintTop_toBottomOf="@+id/textHowMany" />
 
@@ -38,10 +38,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="32dp"
         android:text="Skicka bekräftelse om leverans till lager"
-        app:layout_constraintBottom_toTopOf="@+id/editPhoneNr"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSave"
+        app:layout_constraintStart_toStartOf="@+id/buttonSave"
         tools:text="Skicka bekräftelse om leverans till lager" />
 
     <EditText
@@ -49,31 +48,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="32dp"
         android:ems="10"
         android:hint="Telefonnummer"
-        android:inputType="textPersonName"
+        android:inputType="phone"
         app:layout_constraintBottom_toTopOf="@+id/editEmail"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/editEmail" />
 
     <EditText
         android:id="@+id/editEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="E-mailaddress"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSave"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/sendConfirmation"
+        app:layout_constraintStart_toStartOf="@+id/sendConfirmation" />
 
     <Button
         android:id="@+id/buttonSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginStart="24dp"
+        android:background="@color/colorAccent"
         android:onClick="clickedSave"
         android:text="Spara"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -84,11 +82,11 @@
         android:id="@+id/textAmountOfOrders"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
         android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBarHowMany"
         app:layout_constraintStart_toEndOf="@+id/seekBarHowMany"
-        app:layout_constraintTop_toBottomOf="@+id/textHowMany"
+        app:layout_constraintTop_toTopOf="@+id/seekBarHowMany"
         tools:text="10" />
 
 </android.support.constraint.ConstraintLayout>
