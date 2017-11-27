@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">PostVäst</string>
     <string name="settings_name">Inställningar</string>
-    <string name="ejLeveradeButton">Ej Levererade</string>
-    <string name="levereradeButton">Levererade</string>
+    <string name="notDeliveredBtn">Ej Levererade</string>
+    <string name="deliveredBtn">Levererade</string>
     <string name="settingsButton">Inställningar</string>
     <string name="refreshButton">Uppdatera</string>
     <string name="listButton">Orders</string>
+    <string name="deliveredText">Levererad</string>
 </resources>

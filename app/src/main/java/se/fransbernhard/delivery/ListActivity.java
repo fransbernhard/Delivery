@@ -60,7 +60,6 @@ public class ListActivity extends AppCompatActivity {
         unDeliverd = findViewById(R.id.EjLevButton);
         unDeliverdText = findViewById(R.id.EjLevText);
 
-
         setAdapter();
 
     }
@@ -140,6 +139,7 @@ public class ListActivity extends AppCompatActivity {
         unDeliverdText.setVisibility(View.INVISIBLE);
         setAdapter();
     }
+
 
 }
 
