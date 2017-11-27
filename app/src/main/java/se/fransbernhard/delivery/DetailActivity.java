@@ -10,7 +10,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -21,7 +23,8 @@ public class DetailActivity extends AppCompatActivity {
     private Client client;
     private TextView clientName, clientID, deliveryDate, orderID,
                     orderSum, contactPerson, contactNumber, email, address, zipCode;
-    private Button deliverButton;
+    private ToggleButton deliveredToggleBtn;
+    private int initialOrderStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +35,13 @@ public class DetailActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         // This will remove App name
 //        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        deliverButton = (Button)findViewById(R.id.LeveransButton);
         shared = getSharedPreferences("PREFERENCES",MODE_PRIVATE);
         dbHelper = new DBHelper(this);
         Intent intent = getIntent();
         order = dbHelper.getOrder(intent.getIntExtra("ORDER_ID", 1));
         client = dbHelper.getClient(order.getClientID());
+        deliveredToggleBtn = (ToggleButton)findViewById(R.id.DeliveredToggleBtn);
+        initialOrderStatus = order.delivered;
 
         clientName = (TextView)findViewById(R.id.clientName);
         clientID = (TextView)findViewById(R.id.clientID);
@@ -61,7 +65,21 @@ public class DetailActivity extends AppCompatActivity {
         address.setText(client.getClientAdress());
         zipCode.setText(client.getClientZipCode() + " " + client.getClientCity());
 
-        deliverButtonHide();
+        deliveredToggleBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                int currentNumberOfOrders = shared.getInt("CURRENT_NUMBER_OF_ORDERS", 10);
+                SharedPreferences.Editor editor = shared.edit();
+
+                if (initialOrderStatus == 0 && isChecked)
+                    editor.putInt("CURRENT_NUMBER_OF_ORDERS", currentNumberOfOrders - 1);
+                else if(initialOrderStatus == 1 && !isChecked)
+                    editor.putInt("CURRENT_NUMBER_OF_ORDERS", currentNumberOfOrders + 1);
+
+                editor.commit();
+                dbHelper.updateDelivered(order);
+            }
+        });
     }
 
     @Override
@@ -83,23 +101,16 @@ public class DetailActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void deliverButtonHide(){
-        if (order.delivered == 0){
-            deliverButton.setVisibility(View.VISIBLE);
-        }
-        else {deliverButton.setVisibility(View.INVISIBLE);}
-    }
+//    public void clickToggleBtn(View v) {
+//        if (order.delivered == 0) {
+//            int currentNumberOfOrders = shared.getInt("CURRENT_NUMBER_OF_ORDERS", 10);
+//            SharedPreferences.Editor editor = shared.edit();
+//            editor.putInt("CURRENT_NUMBER_OF_ORDERS", currentNumberOfOrders - 1);
+//            editor.commit();
+//            dbHelper.updateDelivered(order);
+//        }
+//
+//    }
 
-    public void clickSave(View v) {
-        if (order.delivered==0) {
-            int currentNumberOfOrders = shared.getInt("CURRENT_NUMBER_OF_ORDERS", 10);
-            SharedPreferences.Editor editor = shared.edit();
-            editor.putInt("CURRENT_NUMBER_OF_ORDERS", currentNumberOfOrders - 1);
-            editor.commit();
-            dbHelper.updateDelivered(order);
-            deliverButton.setVisibility(View.INVISIBLE);
-        }
-
-    }
 
 }
