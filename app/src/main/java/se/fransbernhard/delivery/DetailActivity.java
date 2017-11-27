@@ -61,10 +61,7 @@ public class DetailActivity extends AppCompatActivity {
         address.setText("Adress: " + client.getClientAdress());
         zipCode.setText("Zip and City: " + client.getClientZipCode() + " " + client.getClientCity());
 
-        if (order.delivered==1)
-            deliverButton.setEnabled(false);
-        else
-            deliverButton.setEnabled(true);
+        deliverButtonHide();
     }
 
     @Override
@@ -86,6 +83,13 @@ public class DetailActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void deliverButtonHide(){
+        if (order.delivered == 0){
+            deliverButton.setVisibility(View.VISIBLE);
+        }
+        else {deliverButton.setVisibility(View.INVISIBLE);}
+    }
+
     public void clickSave(View v) {
         if (order.delivered==0) {
             int currentNumberOfOrders = shared.getInt("CURRENT_NUMBER_OF_ORDERS", 10);
@@ -93,8 +97,9 @@ public class DetailActivity extends AppCompatActivity {
             editor.putInt("CURRENT_NUMBER_OF_ORDERS", currentNumberOfOrders - 1);
             editor.commit();
             dbHelper.updateDelivered(order);
+            deliverButton.setVisibility(View.INVISIBLE);
         }
-        deliverButton.setEnabled(false);
+
     }
 
 }
