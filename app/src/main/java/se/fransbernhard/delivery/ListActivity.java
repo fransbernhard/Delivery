@@ -121,10 +121,10 @@ public class ListActivity extends AppCompatActivity {
         showingNotDelivered = true;
         refreshButton.setVisible(true);
 
-        unDeliverd.setVisibility(View.INVISIBLE);
-        unDeliverdText.setVisibility(View.VISIBLE);
-        deliverd.setVisibility(View.VISIBLE);
-        deliverdText.setVisibility(View.INVISIBLE);
+        unDeliverd.setVisibility(View.VISIBLE);
+        unDeliverdText.setVisibility(View.INVISIBLE);
+        deliverd.setVisibility(View.INVISIBLE);
+        deliverdText.setVisibility(View.VISIBLE);
 
         setAdapter();
     }
@@ -133,10 +133,11 @@ public class ListActivity extends AppCompatActivity {
         showingNotDelivered = false;
         refreshButton.setVisible(false);
 
-        deliverd.setVisibility(View.INVISIBLE);
-        deliverdText.setVisibility(View.VISIBLE);
-        unDeliverd.setVisibility(View.VISIBLE);
-        unDeliverdText.setVisibility(View.INVISIBLE);
+        deliverd.setVisibility(View.VISIBLE);
+        deliverdText.setVisibility(View.INVISIBLE);
+        unDeliverd.setVisibility(View.INVISIBLE);
+        unDeliverdText.setVisibility(View.VISIBLE);
+
         setAdapter();
     }
 
