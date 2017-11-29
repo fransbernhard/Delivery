@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Delivery</string>
     <string name="settings_name">Inställningar</string>
-    <string name="notDeliveredBtn">Ej Levererade</string>
-    <string name="deliveredBtn">Levererade</string>
+    <string name="notDeliveredBtn">Ångra leverans</string>
+    <string name="deliveredBtn">Leverera</string>
     <string name="settingsButton">Inställningar</string>
     <string name="refreshButton">Uppdatera</string>
     <string name="listButton">Ordrar</string>

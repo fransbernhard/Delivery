@@ -175,7 +175,7 @@
         android:layout_marginBottom="80dp"
         android:layout_marginEnd="8dp"
         android:checked="false"
-        android:text="@string/notDeliveredBtn"
+        android:textOn="@string/deliveredBtn"
         android:textOff="@string/notDeliveredBtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
