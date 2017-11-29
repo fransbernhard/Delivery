@@ -31,7 +31,7 @@ public class ListActivity extends AppCompatActivity {
     private Button unDeliverd;
     private TextView deliverdText;
     private TextView unDeliverdText;
-    private MenuItem settingsButton;
+    private MenuItem refreshButton;
 
 
     @Override
@@ -67,7 +67,7 @@ public class ListActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_list_toolbar, menu);
-        settingsButton = menu.findItem(R.id.settingsButton);
+        refreshButton = menu.findItem(R.id.refreshButton);
         return true;
     }
 
@@ -119,7 +119,7 @@ public class ListActivity extends AppCompatActivity {
 
     public void clickedNotDelivered(View v) {
         showingNotDelivered = true;
-        settingsButton.setVisible(true);
+        refreshButton.setVisible(true);
 
         unDeliverd.setVisibility(View.INVISIBLE);
         unDeliverdText.setVisibility(View.VISIBLE);
@@ -131,7 +131,7 @@ public class ListActivity extends AppCompatActivity {
 
     public void clickedDelivered(View v) {
         showingNotDelivered = false;
-        settingsButton.setVisible(false);
+        refreshButton.setVisible(false);
 
         deliverd.setVisibility(View.INVISIBLE);
         deliverdText.setVisibility(View.VISIBLE);
