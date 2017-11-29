@@ -1,11 +1,16 @@
 package se.fransbernhard.delivery;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CompoundButton;
@@ -80,8 +85,10 @@ public class DetailActivity extends AppCompatActivity {
 
                 editor.commit();
                 dbHelper.updateDelivered(order);
+                requestPermission();
             }
         });
+
     }
 
     @Override
@@ -103,4 +110,28 @@ public class DetailActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 1:
+                if ((grantResults.length > 0) && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    smsHelper.sendSMS(dbHelper.getOrder(order.getOrderID()).getDelivered());
+                }
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private void requestPermission() {
+        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE);
+
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 1);
+        } else {
+            smsHelper.sendSMS(dbHelper.getOrder(order.getOrderID()).getDelivered());
+            Log.i("DELIVERED",""+dbHelper.getOrder(order.getOrderID()).getDelivered());
+        }
+    }
 }
