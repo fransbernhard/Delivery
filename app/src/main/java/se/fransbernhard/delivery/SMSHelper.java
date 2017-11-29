@@ -1,7 +1,6 @@
 package se.fransbernhard.delivery;
 
-import android.content.Intent;
-import android.net.Uri;
+import android.telephony.SmsManager;
 
 /**
  * Created by mrx on 2017-11-27.
@@ -10,24 +9,24 @@ import android.net.Uri;
 public class SMSHelper {
     private String phoneNumber;
     private String message;
+    private SmsManager smsManager;
 
     public SMSHelper(String phoneNumber, int orderNr) {
         this.phoneNumber = phoneNumber;
         message = "Order: "+orderNr+" har levererats.";
+        smsManager = SmsManager.getDefault();
     }
 
-    public Intent sendSMS() {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + convertToNumber()));
-        intent.putExtra("MESSAGE", message);
-        return intent;
+    public void sendSMS() {
+        smsManager.sendTextMessage(eraseSpaces(phoneNumber),null, message, null, null);
     }
 
-    private int convertToNumber() {
-        String[] noSpaces = phoneNumber.split(" ");
+    private String eraseSpaces(String oldNumber) {
+        String[] noSpaces = oldNumber.split(" ");
         String newNumber = "";
         for (String s:noSpaces)
             newNumber += s;
-        return Integer.parseInt(newNumber);
+        return newNumber;
     }
 
 }
