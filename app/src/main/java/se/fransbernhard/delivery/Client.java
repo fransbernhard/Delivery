@@ -12,6 +12,8 @@ class Client {
     private String contactEmail;
     private String clientAdress;
     private String clientZipCode;
+    private double clientLat;
+    private double clientLong;
 
     public void setClientID(int clientID) {
         this.clientID = clientID;

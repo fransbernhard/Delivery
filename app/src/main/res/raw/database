@@ -1,0 +1,122 @@
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS `Orders` (
+	`orderID`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`orderSum`	INTEGER NOT NULL,
+	`deliveryTime`	INTEGER,
+	`delivered`	INTEGER,
+	`fk_clientID`	INTEGER,
+	FOREIGN KEY(`fk_clientID`) REFERENCES `Clients`(`clientID`)
+);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (1,242,171125,0,1);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (2,12349,180225,0,2);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (3,5463,171202,0,3);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (4,729,171205,0,4);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (5,192847,171223,0,5);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (6,2549,171126,0,6);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (7,108573,180120,0,7);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (8,666,171115,0,8);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (9,35482,180105,0,9);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (10,96849,171224,0,10);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (11,453628,171110,0,11);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (12,53361,171213,0,12);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (13,242353,171215,0,13);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (14,72646,180125,0,14);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (15,91482,180101,0,15);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (16,2234,171201,0,16);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (17,48274,171130,0,17);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (18,295274,171225,0,18);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (19,3636,180213,0,19);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (20,38181,180201,0,20);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (21,352,171203,0,21);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (22,2343,171214,0,22);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (23,537458,180212,0,23);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (24,343,180101,0,24);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (25,43647,171230,0,25);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (26,3547,171224,0,26);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (27,35344,180123,0,27);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (28,3546,180228,0,28);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (29,45899,180126,0,29);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (30,9375,171130,0,30);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (31,12457,171202,0,31);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (32,432,171215,0,32);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (33,6885,171205,0,33);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (34,235347,171204,0,34);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (35,43246,171129,0,35);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (36,8456,180110,0,36);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (37,8374,180126,0,37);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (38,74626,180215,0,38);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (39,9484,180201,0,39);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (40,2245,171221,0,40);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (41,645,171212,0,41);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (42,6772,171201,0,42);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (43,78416,171128,0,43);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (44,4849,180113,0,44);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (45,1009,180207,0,45);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (46,5552,180118,0,46);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (47,635,171225,0,47);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (48,59484,180111,0,48);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (49,5552,180213,0,49);
+INSERT INTO `Orders` (orderID,orderSum,deliveryTime,delivered,fk_clientID) VALUES (50,1234,180126,0,50);
+CREATE TABLE IF NOT EXISTS `Clients` (
+	`clientID`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`clientName`	TEXT,
+	`contactPerson`	TEXT,
+	`contactNumber`	TEXT,
+	`contactEmail`	TEXT,
+	`clientAdress`	TEXT,
+	`clientZipCode`	TEXT,
+	`clientCity`	TEXT,
+	`clientLat`	    REAL,
+	`clientLong`	REAL
+);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (1,'Sven Svensson','Sven Svensson','0738144093 ','sven.svensson@gmail.com','Södra vägen 17','411 35','Göteborg',57.700891,11.976709);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (2,'Spotify','Glen Hysén','031 13 13 13','glen@spotify.com','Ullevi gatan 45','411 34','Göteborg',57.707131,11.987589);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (3,'Volvo','Per Person','031 59 00 00','per@volvo.se','Monteringsvägen 2','418 78','Göteborg',57.713672,11.84257);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (4,'Birgit Nilsson','Birgit Nilsson','0322 62 12 25','birgit.nilsson@hotmail.com','Kyrkogatan 1','447 33','Vårgårda',58.035394,12.808196);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (5,'Interflora','Carin Svensson','0724567890','carin@interflora.se','Postgatan 26','411 06','Göteborg',57.708461,11.969497);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (6,'Ica Maxi','Mackan Maxi','0764538294','mackan@maxi.se','Gymnasiegatan 1','442 34','Kungälv',57.874835,11.974003);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (7,'Emma Lidell','Emma Lidell ','0734891304','emmisen@live.se','Sörgårdsvägen 34','445 37','Bohus',57.842786,12.018695);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (8,'Ria Buhlin','Ria Buhlin','0738144093','rialia@live.se','Södra vägen 17','46 331','Lilla Edet',58.134371,12.131995);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (9,'IT HÖGSKOLAN','Marcus Andersson','0705169513','marcus@iths.se','Ebbe Lieberathsgatan 18C','412 65','Göteborg',57.678897,12.001433);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (10,'Facebook','Mark Zuckerberg','0734567890','facebook@facebook.com','Pixbovägen 1','432 36','Mölndal',57.656659,12.035141);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (11,'Santa Claus','Tomten','031 24 24 24','santa@claus.com','Norra gatan 1','124 24','Nordpolen',38.904115,-104.976398);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (12,'Västtrafik','Pål Vift','031 11 00 00','vift@vasttrafik.se','Brunnsparken 3','411 06','Göteborg',57.70677,11.969495);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (13,'SJ','Kalle Karlsson','031 66 66 66','kk@sj.se','Nils Ericsson 1','411 03','Göteborg',57.710158,57.710158);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (14,'Coca Cola','Coola Carl','0303 24 04 90','coca@cola.com','Kvarnvägen 6','445 57','Surte',57.829575,12.014013);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (15,'Lindex','Carina Andersson','010 452 61 30','contact@lindex.com','Nordstan','411 05','Göteborg',57.708709,11.969142);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (16,'H&M','Lise-Lotte Karlsson','033 14 00 00','info@hm.com','Kungsportsavenyn 26','411 36','Göteborg',57.69955,11.976743);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (17,'Hogia','Bert-Inge Hogsved','0303 666 00','contact@hogia.se','Hakenäs','444 28','Stenungsund',58.059298,11.818306);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (18,'Ica Boström','Malin Börjesson','0520 47 35 50','malin@ica.se','Göteborgsvägen 49','463 30','Lilla Edet',58.13712,12.127828);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (19,'TinTin','Snowy','031 18 07 70','info@tintin.coffee','Engelbrektsgatan 22','411 37','Göteborg',57.697789,11.974704);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (20,'Estrella AB','Folke Andersson','031 332 30 00','chips@estrella.se','Angereds Storåsväg 71','424 69','Angered',57.782048,12.048327);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (21,'Casino Cosmopol','Jaak Murro','020 21 92 19','goteborg@casinocosmopol.se','Packhusplatsen 7','411 13','Göteborg',57.70764,11.959365);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (22,'ÅF','Åke Bengtsson','010 505 00 00','consult@af.com','Grafiska vägen 2','412 63','Göteborg',57.682505,12.003448);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (23,'Sigma','Sophie Ardell','020 55 05 50','info@sigmaitc.se','Lindholmspiren 9','417 56','Göteborg',57.706137,11.940225);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (24,'CGI','Ewa Nilsson','031 733 10 00 ','contact@cgi.se','Grafiska vägen 22 ','412 63','Göteborg',57.67883,12.004866);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (25,'Bokio','Mikael Eliasson','0725272336','micke@bokio.se','Geijersgatan 1','411 34','Göteborg',57.696909,11.975959);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (26,'Trafikverket','Peter Svensson','0771921921','perter@trafikverket.se','Kruthusgatan 17','411 04','Göteborg',57.711975,11.983379);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (27,'Postnord','Axel Oxenstierna','0771333310','borta@postnord.se','Kruthusgatan 17','411 04','Göteborg',57.711975,11.983379);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (28,'DHL','Adrian Dalsey','031 52 37 16','info@dhl.se','Hamneviksvägen 97','418 79','Göteborg',57.715436,11.822549);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (29,'IKEA','Ingvar Kamprad','0775700500','kamprad@ikea.se','Handelsvägen 4','343 31','Älmhult',59.284205,18.085921);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (30,'JYSK','Lars Larsen','0770457457','stol@jysk.se','Arabygatan 13','352 46','Växsjö',56.881254,14.783802);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (31,'BR','Pia Löfgård','0757282204','toys@br.se','Kungsgatan 53','411 15','Göteborg',57.704507,11.967792);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (32,'Pelle Persson','Pelle Persson','0303 97997','glidaren@gmail.com','Daggkåpevägen 5','44933','Nödinge',57.895638,12.064049);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (33,'Daniel Karlsson','Daniel Karlsson','0732121212','karlsson.karlsson@gmail.com','Kapplandsgatan 1','414 78','Göteborg',57.672356,11.93142);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (34,'Quality Hotel 11','Christina Palm','0702345678','quality@hotel.com','Maskingatan 11','417 64','Göteborg',57.701112,11.913929);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (35,'Göteborgsoperan','Jan Izikowitz','031 10 80 00','sv@opera.se','Christina Nilssons gata ','411 04','Göteborg',57.710274,11.96338);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (36,'Göteborgs-Posten','Peter Hjörne','031 62 40 00 ','info@gp.se','Polhemsplatsen 5','411 11 ','Göteborg',57.708875,11.97791);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (37,'Telia','Lisa Janson','020 40 08 00','contact@telia.se','Nils Henrikssons väg 3','433 35','Partille',57.736727,12.105484);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (38,'Tele2','Jan Stenbeck','031 720 59 00','jan@tele2.se','Mölndalsvägen 85','412 85','Göteborg',57.681775,12.001169);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (39,'Tre','Jacob Wallenberg','031 708 65 00','info@tre.se','Bifrostgatan 46','431 90','Mölndal',57.652237,11.986433);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (40,'Telenor ','Börje Svensson','020 22 22 22','contact@telenor.se','Drottningtorget 5','411 03','Göteborg',57.708485,11.97333);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (41,'SEB','Oscar Ekman','031 62 28 40','oscar@seb.se','Linnégatan 25','413 04','Göteborg',57.695814,11.951263);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (42,'Kinnarps','Jarl Andersson','031 703 27 00','info@kinnarps.se','Ebbe Lieberathsgatan 30','412 65 ','Göteborg',57.677523,12.002701);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (43,'MediaMarkt','Erich Kellerhals','0770778787','erich@media.com','Lona Knapes gata 1','421 32','Västra Frölunda',57.65106,11.948711);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (44,'Halebop','Gunnar Lissinger','020 40 08 00','kundtjanst@helebop.se','Nils Henrikssons väg 3','433 35','Partille',57.736727,12.105484);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (45,'New Wave','Torsten Jansson','031 712 89 00','new@wave.com','Kungsportsavenyn 10','411 36','Göteborg',57.701381,11.974537);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (46,'Ringöns Tryckeri AB','Stefan Nilsson','031 707 08 90','stefan.nilsson@hotmail.com','Tackjärnsgatan 5','417 07','Göteborg',57.720204,11.966661);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (47,'Desgintorget','Jenny Hellström','031 774 00 17','contact@design.se','Vallgatan 14','411 16','Göteborg',57.703763,11.964695);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (48,'Riksbyggen','Jonas Morian','077186+860','morian@riksbyggen.se','Fjärde Långgatan 48','413 18','Göteborg',57.697991,11.943909);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (49,'PwC','Edwin Waterhouse','010 213 10 00','info@pwc.se','Skånegatan 1','411 40','Göteborg',57.70576,11.984093);
+INSERT INTO `Clients` (clientID,clientName,contactPerson,contactNumber,contactEmail,clientAdress,clientZipCode,clientCity,clientLat,clientLong) VALUES (50,'Sunfleet','Peter Algurén','031 757 65 00','kundtjanst@sunfleet.se','Teatergatan 2','411 35','Göteborg',57.701543,11.972186);
+COMMIT;

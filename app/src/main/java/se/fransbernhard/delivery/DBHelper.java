@@ -18,7 +18,7 @@ import java.util.List;
  */
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final int DB_VERSION = 3;
+    public static final int DB_VERSION = 4;
     private Context context;
 
     public DBHelper(Context context) {
@@ -30,7 +30,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // When creating the database
         try {
-            insertFromFile(R.raw.test, db);
+            insertFromFile(R.raw.database, db);
         } catch (IOException e) {
             e.printStackTrace();
         }
