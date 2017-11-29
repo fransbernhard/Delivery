@@ -40,7 +40,7 @@ public class DetailActivity extends AppCompatActivity {
         client = dbHelper.getClient(order.getClientID());
         deliveredToggleBtn = (ToggleButton)findViewById(R.id.DeliveredToggleBtn);
         initialOrderStatus = order.delivered;
-        deliveredToggleBtn.setChecked(initialOrderStatus==1);
+        deliveredToggleBtn.setChecked(initialOrderStatus==0);
 
         clientName = (TextView)findViewById(R.id.clientName);
         clientID = (TextView)findViewById(R.id.clientID);
