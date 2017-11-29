@@ -101,16 +101,4 @@ public class DetailActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-//    public void clickToggleBtn(View v) {
-//        if (order.delivered == 0) {
-//            int currentNumberOfOrders = shared.getInt("CURRENT_NUMBER_OF_ORDERS", 10);
-//            SharedPreferences.Editor editor = shared.edit();
-//            editor.putInt("CURRENT_NUMBER_OF_ORDERS", currentNumberOfOrders - 1);
-//            editor.commit();
-//            dbHelper.updateDelivered(order);
-//        }
-//
-//    }
-
-
 }
