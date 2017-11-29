@@ -8,8 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -42,6 +40,7 @@ public class DetailActivity extends AppCompatActivity {
         client = dbHelper.getClient(order.getClientID());
         deliveredToggleBtn = (ToggleButton)findViewById(R.id.DeliveredToggleBtn);
         initialOrderStatus = order.delivered;
+        deliveredToggleBtn.setChecked(initialOrderStatus==0);
 
         clientName = (TextView)findViewById(R.id.clientName);
         clientID = (TextView)findViewById(R.id.clientID);
@@ -69,11 +68,12 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 int currentNumberOfOrders = shared.getInt("CURRENT_NUMBER_OF_ORDERS", 10);
+                int numberOfOrders = shared.getInt("NUMBER_OF_ORDERS", 10);
                 SharedPreferences.Editor editor = shared.edit();
 
-                if (initialOrderStatus == 0 && isChecked)
+                if (initialOrderStatus == 0 && isChecked && currentNumberOfOrders>0)
                     editor.putInt("CURRENT_NUMBER_OF_ORDERS", currentNumberOfOrders - 1);
-                else if(initialOrderStatus == 1 && !isChecked)
+                else if(initialOrderStatus == 1 && !isChecked && currentNumberOfOrders<numberOfOrders)
                     editor.putInt("CURRENT_NUMBER_OF_ORDERS", currentNumberOfOrders + 1);
 
                 editor.commit();

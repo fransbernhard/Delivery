@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">Delivery</string>
     <string name="settings_name">Inställningar</string>
-    <string name="notDeliveredBtn">Ej Levererade</string>
+    <string name="notDeliveredBtn">Ej levererade</string>
     <string name="deliveredBtn">Levererade</string>
     <string name="settingsButton">Inställningar</string>
     <string name="refreshButton">Uppdatera</string>
     <string name="listButton">Ordrar</string>
     <string name="deliveredText">Levererad</string>
+    <string name="deliverToggleBtn">Leverera</string>
+    <string name="notDeliverToggleBtn">Ångra leverans</string>
 </resources>
