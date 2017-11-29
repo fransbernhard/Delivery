@@ -66,33 +66,6 @@ public class DBHelper extends SQLiteOpenHelper {
             onCreate(db);
         }
     }
-/*
-
-    public List<Order> getAllOrders(){
-        List<Order> orderList = new ArrayList<>();
-        SQLiteDatabase db = getReadableDatabase();
-
-        Cursor c = db.query("Orders",null, null, null,null,null,null);
-
-        boolean success = c.moveToFirst();
-        if(success) {
-            do {
-                Order order = new Order();
-
-                order.orderID = c.getInt(0);
-                order.orderSum = c.getInt(1);
-                order.deliveryTime = c.getString(2);
-                order.delivered = c.getInt(3);
-                order.clientID = c.getInt(4);
-
-                orderList.add(order);
-                Log.d("SQL", order.orderID + "," + order.orderSum + "," + order.clientID);
-            } while (c.moveToNext());
-        }
-        db.close();
-        return orderList;
-    }
-    */
 
     public List<Client> getAllClients(){
         List<Client> clientList = new ArrayList<>();
@@ -244,35 +217,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.close();
         return order;
-    }
-
-    public void addClients(String clientName, String contactPerson, int contactNumber, String contactEmail, String clientAdress, int clientZipCode, String clientCity){
-        SQLiteDatabase db = getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-
-        contentValues.put("clientName",clientName);
-        contentValues.put("contactPerson", contactPerson);
-        contentValues.put("contactNumber", contactNumber);
-        contentValues.put("contactEmail", contactEmail);
-        contentValues.put("clientAdress", clientAdress);
-        contentValues.put("clientZipCode", clientZipCode);
-        contentValues.put("clientCity", clientCity);
-
-        db.insert("Clients",null,contentValues);
-        db.close();
-    }
-
-    public void addOrders(int orderSum, int deliveryTime, int fk_clientID){
-        SQLiteDatabase db = getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-
-        contentValues.put("orderSum", orderSum);
-        contentValues.put("deliveryTime", deliveryTime);
-        contentValues.put("delivered", 0);
-        contentValues.put("fk_clientID", fk_clientID);
-
-        db.insert("Orders",null,contentValues);
-        db.close();
     }
 
 }
