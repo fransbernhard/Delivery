@@ -23,6 +23,7 @@ public class DetailActivity extends AppCompatActivity {
                     orderSum, contactPerson, contactNumber, email, address, zipCode;
     private ToggleButton deliveredToggleBtn;
     private int initialOrderStatus;
+    private SMSHelper smsHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class DetailActivity extends AppCompatActivity {
         deliveredToggleBtn = (ToggleButton)findViewById(R.id.DeliveredToggleBtn);
         initialOrderStatus = order.delivered;
         deliveredToggleBtn.setChecked(initialOrderStatus==0);
+        smsHelper = new SMSHelper(order.getOrderID());
 
         clientName = (TextView)findViewById(R.id.clientName);
         clientID = (TextView)findViewById(R.id.clientID);
