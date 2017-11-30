@@ -2,6 +2,8 @@ package se.fransbernhard.delivery;
 
 import android.telephony.SmsManager;
 
+import java.util.ArrayList;
+
 /**
  * Created by mrx on 2017-11-27.
  */
@@ -10,25 +12,30 @@ public class SMSHelper {
     private String phoneNumber;
     private String message;
     private SmsManager smsManager;
-    final String serverNumber = "0723227250";
+    private ArrayList<String> msgArray;
+    final String serverNumber = "5554";
 
     public SMSHelper(String phoneNumber, int orderNr) {
         this.phoneNumber = phoneNumber;
-        message = "Order: "+orderNr+" har levererats.";
+        message = "Order: "+orderNr+" har ";
         smsManager = SmsManager.getDefault();
+        msgArray = smsManager.divideMessage(message);
     }
 
     public SMSHelper(int orderNr) {
         phoneNumber = serverNumber;
-        message = "Order: "+orderNr+" har levererats.";
+        message = "Order: "+orderNr+" har ";
         smsManager = SmsManager.getDefault();
+        msgArray = smsManager.divideMessage(message);
     }
 
-    public void sendSMS() {
+    public void sendSMS(int delivered) {
+        String status = delivered==1? "levererats.":"ej levererats.";
+        msgArray = smsManager.divideMessage(message+status);
         if (phoneNumber.equals(serverNumber))
-            smsManager.sendTextMessage(phoneNumber,null, message, null, null);
+            smsManager.sendMultipartTextMessage(phoneNumber,null, msgArray, null, null);
         else
-            smsManager.sendTextMessage(eraseSpaces(phoneNumber),null, message, null, null);
+            smsManager.sendMultipartTextMessage((eraseSpaces(phoneNumber)),null, msgArray, null, null);
     }
 
     private String eraseSpaces(String oldNumber) {

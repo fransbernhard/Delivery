@@ -30,6 +30,7 @@
             android:resource="@array/preloaded_fonts" />
     </application>
     <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <uses-permission android:name="android.Manifest.permission.READ_PHONE_STATE" />
 
 </manifest>
