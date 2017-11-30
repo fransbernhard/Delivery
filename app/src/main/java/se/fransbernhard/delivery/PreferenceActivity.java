@@ -96,7 +96,7 @@ public class PreferenceActivity extends AppCompatActivity {
             }
         });
 
-        seekBarHowMany.setMin(0);
+
         seekBarHowMany.setMax(20);
     }
 

@@ -54,6 +54,9 @@ public class ClientsAdapter extends BaseAdapter {
         titleTextView.setText(client.getClientName());
         subtitleTextView.setText(client.getClientAdress());
         detailTextView.setText(order.getDeliveryTime());
+        //thumbnailImageView.setImageResource(R.drawable.icon_one);
+        //thumbnailImageView.setImageResource(R.drawable.icon_two);
+        thumbnailImageView.setImageResource(R.drawable.icon_three);
 
         return rowView;
     }
