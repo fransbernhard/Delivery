@@ -11,4 +11,7 @@
     <color name="colorEnd">#c48b9f</color>
     <color name="colorCenter">#f8bbd0</color>
     <color name="colorStart">#ffeeff</color>
+
+    <color name="colorDelivered">#aafa6bcb</color>
+    <color name="colorNotDelivered">#FFFFFF</color>
 </resources>

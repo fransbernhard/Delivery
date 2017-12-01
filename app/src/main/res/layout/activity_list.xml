@@ -6,89 +6,68 @@
     android:layout_height="match_parent"
     tools:context="se.fransbernhard.delivery.ListActivity">
 
+
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/myToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" />
 
-    <Button
-        android:id="@+id/EjLevButton"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="192dp"
-        android:layout_height="52dp"
-        android:text="@string/notDeliveredBtn"
-        android:background="@color/colorButtonfaded"
-        android:textColor="@android:color/background_light"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myToolbar" />
-
-    <TextView
-        android:id="@+id/EjLevText"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="192dp"
-        android:layout_height="52dp"
-        android:text="@string/notDeliveredBtn"
-        android:onClick="clickedNotDelivered"
-        android:textColor="@color/colorButton"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myToolbar" />
-
-    <Button
-        android:id="@+id/LevButton"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="192dp"
-        android:layout_height="52dp"
-        android:background="@color/colorButtonfaded"
-        android:text="@string/deliveredBtn"
-        android:textColor="@android:color/background_light"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/EjLevButton"
-        app:layout_constraintTop_toBottomOf="@+id/myToolbar" />
-
-    <TextView
-        android:id="@+id/LevText"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="192dp"
-        android:layout_height="52dp"
-        android:text="@string/deliveredText"
-        android:onClick="clickedDelivered"
-        android:textColor="@color/colorButton"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/EjLevButton"
-        app:layout_constraintTop_toBottomOf="@+id/myToolbar" />
-
-    <View
-        android:id="@+id/Linje"
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="108dp"
-        android:background="#c0c0c0"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/myToolbar">
+
+        <Button
+            android:id="@+id/EjLevButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorButtonfaded"
+            android:onClick="clickedNotDelivered"
+            android:text="@string/notDeliveredBtn"
+            android:textColor="@android:color/background_light" />
+
+        <Button
+            android:id="@+id/LevButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/background_light"
+            android:onClick="clickedDelivered"
+            android:text="@string/deliveredBtn"
+            android:textColor="@color/colorButton" />
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/OrderLista"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/EjLevButton" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
+    <View
+        android:id="@+id/Linje"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#c0c0c0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 
 </android.support.constraint.ConstraintLayout>

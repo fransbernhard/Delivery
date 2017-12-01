@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
@@ -32,7 +34,7 @@ public class ListActivity extends AppCompatActivity {
     private TextView deliverdText;
     private TextView unDeliverdText;
     private MenuItem refreshButton;
-
+    private Animation animation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +58,12 @@ public class ListActivity extends AppCompatActivity {
         clients = dbhelper.getAllClients();
 
         deliverd = findViewById(R.id.LevButton);
-        deliverdText = findViewById(R.id.LevText);
+//        deliverdText = findViewById(R.id.LevText);
         unDeliverd = findViewById(R.id.EjLevButton);
-        unDeliverdText = findViewById(R.id.EjLevText);
+//        unDeliverdText = findViewById(R.id.EjLevText);
+
+        animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink_effect);
+
 
         setAdapter();
 
@@ -121,22 +126,36 @@ public class ListActivity extends AppCompatActivity {
         showingNotDelivered = true;
         refreshButton.setVisible(true);
 
-        unDeliverd.setVisibility(View.VISIBLE);
-        unDeliverdText.setVisibility(View.INVISIBLE);
-        deliverd.setVisibility(View.INVISIBLE);
-        deliverdText.setVisibility(View.VISIBLE);
+//        unDeliverd.setVisibility(View.VISIBLE);
+//        unDeliverdText.setVisibility(View.INVISIBLE);
+//        deliverd.setVisibility(View.INVISIBLE);
+//        deliverdText.setVisibility(View.VISIBLE);
 
         setAdapter();
+
+        unDeliverd.setBackgroundColor(getResources().getColor(R.color.colorDelivered));
+        unDeliverd.setTextColor(getResources().getColor(R.color.colorNotDelivered));
+        deliverd.setBackgroundColor(getResources().getColor(R.color.colorNotDelivered));
+        deliverd.setTextColor(getResources().getColor(R.color.colorButton));
+
+        unDeliverd.startAnimation(animation);
     }
 
     public void clickedDelivered(View v) {
         showingNotDelivered = false;
         refreshButton.setVisible(false);
 
-        deliverd.setVisibility(View.VISIBLE);
-        deliverdText.setVisibility(View.INVISIBLE);
-        unDeliverd.setVisibility(View.INVISIBLE);
-        unDeliverdText.setVisibility(View.VISIBLE);
+//        deliverd.setVisibility(View.VISIBLE);
+//        deliverdText.setVisibility(View.INVISIBLE);
+//        unDeliverd.setVisibility(View.INVISIBLE);
+//        unDeliverdText.setVisibility(View.VISIBLE);
+
+        deliverd.setBackgroundColor(getResources().getColor(R.color.colorDelivered));
+        deliverd.setTextColor(getResources().getColor(R.color.colorNotDelivered));
+        unDeliverd.setBackgroundColor(getResources().getColor(R.color.colorNotDelivered));
+        unDeliverd.setTextColor(getResources().getColor(R.color.colorButton));
+
+        deliverd.startAnimation(animation);
 
         setAdapter();
     }
