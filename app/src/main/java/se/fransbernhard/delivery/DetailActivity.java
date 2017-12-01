@@ -159,7 +159,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        
+
         // Add a marker in Sydney and move the camera
         latlong = new LatLng(client.getClientLat(), client.getClientLong());
         mMap.addMarker(new MarkerOptions().position(latlong).title(client.getClientName()));
