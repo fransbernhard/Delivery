@@ -17,21 +17,19 @@ public class SMSHelper {
 
     public SMSHelper(String phoneNumber, int orderNr) {
         this.phoneNumber = phoneNumber;
-        message = "Order: "+orderNr+" har ";
+        message = "Order: "+orderNr+" har levererats.";
         smsManager = SmsManager.getDefault();
         msgArray = smsManager.divideMessage(message);
     }
 
     public SMSHelper(int orderNr) {
         phoneNumber = serverNumber;
-        message = "Order: "+orderNr+" har ";
+        message = "Order: "+orderNr+" har levererats.";
         smsManager = SmsManager.getDefault();
         msgArray = smsManager.divideMessage(message);
     }
 
-    public void sendSMS(int delivered) {
-        String status = delivered==1? "levererats.":"ej levererats.";
-        msgArray = smsManager.divideMessage(message+status);
+    public void sendSMS() {
         if (phoneNumber.equals(serverNumber))
             smsManager.sendMultipartTextMessage(phoneNumber,null, msgArray, null, null);
         else

@@ -10,7 +10,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CompoundButton;
@@ -85,7 +84,8 @@ public class DetailActivity extends AppCompatActivity {
 
                 editor.commit();
                 dbHelper.updateDelivered(order);
-                requestPermission();
+                if (!isChecked)
+                    requestPermission();
             }
         });
 
@@ -115,7 +115,7 @@ public class DetailActivity extends AppCompatActivity {
         switch (requestCode) {
             case 1:
                 if ((grantResults.length > 0) && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                    smsHelper.sendSMS(dbHelper.getOrder(order.getOrderID()).getDelivered());
+                    smsHelper.sendSMS();
                 }
                 break;
 
@@ -130,8 +130,7 @@ public class DetailActivity extends AppCompatActivity {
         if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 1);
         } else {
-            smsHelper.sendSMS(dbHelper.getOrder(order.getOrderID()).getDelivered());
-            Log.i("DELIVERED",""+dbHelper.getOrder(order.getOrderID()).getDelivered());
+            smsHelper.sendSMS();
         }
     }
 }
