@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Delivery</string>
+    <string name="app_name">Smart Logistics</string>
     <string name="settings_name">Inställningar</string>
     <string name="notDeliveredBtn">Ej levererade</string>
     <string name="deliveredBtn">Levererade</string>
