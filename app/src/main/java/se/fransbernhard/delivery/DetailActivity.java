@@ -11,6 +11,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,6 +43,8 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("POS", "lat:"+client.getClientLat() );
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         toolbar = (Toolbar) findViewById(R.id.myToolbar);
@@ -158,7 +161,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
+        Log.d("POS", "lat:"+client.getClientLat() );
 //        DBHelper data = new DBHelper(this);
 //
 //        Data oneDataObject = data.getOneDataObject();
@@ -169,7 +172,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
 
         // Add a marker in Sydney and move the camera
         //LatLng sydney = new LatLng(-34, 151);
-        latlong = new LatLng(40.730610, -73.935242);
+        latlong = new LatLng(client.getClientLat(), client.getClientLong());
         mMap.addMarker(new MarkerOptions().position(latlong).title("New York"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlong,15));
         mMap.animateCamera(CameraUpdateFactory.zoomIn());

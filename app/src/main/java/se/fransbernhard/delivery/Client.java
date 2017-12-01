@@ -80,5 +80,22 @@ class Client {
         return clientCity;
     }
 
+    public void setClientLat(double clientLat) {
+        this.clientLat = clientLat;
+    }
+
+    public void setClientLong(double clientLong) {
+        this.clientLong = clientLong;
+    }
+
+    public double getClientLat() {
+
+        return clientLat;
+    }
+
+    public double getClientLong() {
+        return clientLong;
+    }
+
     private String clientCity;
 }
