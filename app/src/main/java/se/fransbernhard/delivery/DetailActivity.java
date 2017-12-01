@@ -43,8 +43,6 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("POS", "lat:"+client.getClientLat() );
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         toolbar = (Toolbar) findViewById(R.id.myToolbar);
