@@ -43,8 +43,6 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("POS", "lat:"+client.getClientLat() );
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         toolbar = (Toolbar) findViewById(R.id.myToolbar);
@@ -161,19 +159,10 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        Log.d("POS", "lat:"+client.getClientLat() );
-//        DBHelper data = new DBHelper(this);
-//
-//        Data oneDataObject = data.getOneDataObject();
-//        oneDataObject.setLatitude(40.730610);
-//        oneDataObject.setLongitude(-73.935242);
-//
-//        data.addData(oneDataObject.getLongitude(), oneDataObject.getLatitude());
 
         // Add a marker in Sydney and move the camera
-        //LatLng sydney = new LatLng(-34, 151);
         latlong = new LatLng(client.getClientLat(), client.getClientLong());
-        mMap.addMarker(new MarkerOptions().position(latlong).title("New York"));
+        mMap.addMarker(new MarkerOptions().position(latlong).title(client.getClientName()));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlong,15));
         mMap.animateCamera(CameraUpdateFactory.zoomIn());
         mMap.animateCamera( CameraUpdateFactory.zoomTo(15), 2000, null);

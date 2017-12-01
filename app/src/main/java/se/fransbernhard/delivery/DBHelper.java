@@ -195,6 +195,8 @@ public class DBHelper extends SQLiteOpenHelper {
         client.setClientAdress(c.getString(5));
         client.setClientZipCode(c.getString(6));
         client.setClientCity(c.getString(7));
+        client.setClientLat(c.getDouble(8));
+        client.setClientLong(c.getDouble(9));
 
         db.close();
         return client;
