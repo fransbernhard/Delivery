@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -12,11 +13,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-public class DetailActivity extends AppCompatActivity {
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+public class DetailActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private Toolbar toolbar;
     private SharedPreferences shared;
@@ -28,6 +37,8 @@ public class DetailActivity extends AppCompatActivity {
     private ToggleButton deliveredToggleBtn;
     private int initialOrderStatus;
     private SMSHelper smsHelper;
+    private GoogleMap mMap;
+    private LatLng latlong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +58,10 @@ public class DetailActivity extends AppCompatActivity {
         initialOrderStatus = order.delivered;
         deliveredToggleBtn.setChecked(initialOrderStatus==0);
         smsHelper = new SMSHelper(order.getOrderID());
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
 
         clientName = (TextView)findViewById(R.id.clientName);
         clientID = (TextView)findViewById(R.id.clientID);
@@ -77,9 +92,9 @@ public class DetailActivity extends AppCompatActivity {
                 int numberOfOrders = shared.getInt("NUMBER_OF_ORDERS", 10);
                 SharedPreferences.Editor editor = shared.edit();
 
-                if (initialOrderStatus == 0 && isChecked && currentNumberOfOrders>0)
+                if (initialOrderStatus == 0 && !isChecked && currentNumberOfOrders>0)
                     editor.putInt("CURRENT_NUMBER_OF_ORDERS", currentNumberOfOrders - 1);
-                else if(initialOrderStatus == 1 && !isChecked && currentNumberOfOrders<numberOfOrders)
+                else if(initialOrderStatus == 0 && isChecked && currentNumberOfOrders<numberOfOrders)
                     editor.putInt("CURRENT_NUMBER_OF_ORDERS", currentNumberOfOrders + 1);
 
                 editor.commit();
@@ -132,5 +147,44 @@ public class DetailActivity extends AppCompatActivity {
         } else {
             smsHelper.sendSMS();
         }
+    }
+
+    /**
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     * This is where we can add markers or lines, add listeners or move the camera. In this case,
+     * we just add a marker near Sydney, Australia.
+     */
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+//        DBHelper data = new DBHelper(this);
+//
+//        Data oneDataObject = data.getOneDataObject();
+//        oneDataObject.setLatitude(40.730610);
+//        oneDataObject.setLongitude(-73.935242);
+//
+//        data.addData(oneDataObject.getLongitude(), oneDataObject.getLatitude());
+
+        // Add a marker in Sydney and move the camera
+        //LatLng sydney = new LatLng(-34, 151);
+        latlong = new LatLng(40.730610, -73.935242);
+        mMap.addMarker(new MarkerOptions().position(latlong).title("New York"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlong,15));
+        mMap.animateCamera(CameraUpdateFactory.zoomIn());
+        mMap.animateCamera( CameraUpdateFactory.zoomTo(15), 2000, null);
+    }
+
+    public void mapClick(View v){
+        // Create a Uri from an intent string. Use the result to create an Intent.
+        Uri gmmIntentUri = Uri.parse("google.streetview:cbll=" + latlong);
+        // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        // Make the Intent explicit by setting the Google Maps package
+        mapIntent.setPackage("com.google.android.apps.maps");
+
+        // Attempt to start an activity that can handle the Intent
+        startActivity(mapIntent);
     }
 }

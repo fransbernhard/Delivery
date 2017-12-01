@@ -72,7 +72,7 @@
         android:layout_width="91dp"
         android:layout_height="22dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="12dp"
         android:text="Order"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -102,39 +102,39 @@
         android:id="@+id/KontaktPerson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="12dp"
         android:text="Kontaktperson"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orderSum" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Linje" />
 
     <TextView
         android:id="@+id/contactPerson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
         android:text="Sven Svensson"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/KontaktPerson" />
 
     <TextView
         android:id="@+id/contactNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:text="+46 (0) 123456789"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contactPerson" />
 
     <TextView
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:text="sven.svensson@hotmail.com"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contactNumber" />
 
 
@@ -142,12 +142,11 @@
         android:id="@+id/Adress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:text="Adress"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/orderSum"
+        tools:layout_editor_absoluteX="16dp" />
 
     <TextView
         android:id="@+id/address"
@@ -172,13 +171,24 @@
         android:id="@+id/DeliveredToggleBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="240dp"
+        android:layout_marginEnd="16dp"
         android:checked="false"
-        android:textOn="@string/deliverToggleBtn"
         android:textOff="@string/notDeliverToggleBtn"
+        android:textOn="@string/deliverToggleBtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="@string/notDeliveredBtn" />
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:onClick="mapClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:context="se.fransbernhard.delivery.DetailActivity" />
 
 </android.support.constraint.ConstraintLayout>
