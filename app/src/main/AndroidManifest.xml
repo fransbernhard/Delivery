@@ -25,9 +25,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PreferenceActivity" />
+        <activity android:name=".PreferenceActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="se.fransbernhard.delivery.ListActivity" />
+        </activity>
         <activity android:name=".ListActivity" />
-        <activity android:name=".DetailActivity"></activity>
+        <activity android:name=".DetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="se.fransbernhard.delivery.ListActivity" />
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"

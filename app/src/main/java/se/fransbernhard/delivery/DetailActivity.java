@@ -5,16 +5,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -48,6 +45,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         toolbar = (Toolbar) findViewById(R.id.myToolbar);
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // This will remove App name
 //        getSupportActionBar().setDisplayShowTitleEnabled(false);
         shared = getSharedPreferences("PREFERENCES",MODE_PRIVATE);

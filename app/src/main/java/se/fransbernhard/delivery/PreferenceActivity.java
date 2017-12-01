@@ -41,6 +41,7 @@ public class PreferenceActivity extends AppCompatActivity {
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setTitle(getResources().getString(R.string.settings_name));
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setupSeekBar();
 
