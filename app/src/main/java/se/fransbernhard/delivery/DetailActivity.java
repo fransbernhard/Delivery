@@ -171,7 +171,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         // Add a marker in Sydney and move the camera
         //LatLng sydney = new LatLng(-34, 151);
         latlong = new LatLng(client.getClientLat(), client.getClientLong());
-        mMap.addMarker(new MarkerOptions().position(latlong).title("New York"));
+        mMap.addMarker(new MarkerOptions().position(latlong).title(client.getClientName()));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlong,15));
         mMap.animateCamera(CameraUpdateFactory.zoomIn());
         mMap.animateCamera( CameraUpdateFactory.zoomTo(15), 2000, null);
