@@ -77,9 +77,9 @@ public class DetailActivity extends AppCompatActivity {
                 int numberOfOrders = shared.getInt("NUMBER_OF_ORDERS", 10);
                 SharedPreferences.Editor editor = shared.edit();
 
-                if (initialOrderStatus == 0 && isChecked && currentNumberOfOrders>0)
+                if (initialOrderStatus == 0 && !isChecked && currentNumberOfOrders>0)
                     editor.putInt("CURRENT_NUMBER_OF_ORDERS", currentNumberOfOrders - 1);
-                else if(initialOrderStatus == 1 && !isChecked && currentNumberOfOrders<numberOfOrders)
+                else if(initialOrderStatus == 0 && isChecked && currentNumberOfOrders<numberOfOrders)
                     editor.putInt("CURRENT_NUMBER_OF_ORDERS", currentNumberOfOrders + 1);
 
                 editor.commit();
