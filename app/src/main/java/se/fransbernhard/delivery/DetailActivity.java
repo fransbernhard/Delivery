@@ -31,7 +31,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
     private Order order;
     private Client client;
     private TextView clientName, clientID, deliveryDate, orderID,
-                    orderSum, contactPerson, contactNumber, email, address, zipCode;
+            orderSum, contactPerson, contactNumber, email, address, zipCode;
     private ToggleButton deliveredToggleBtn;
     private int initialOrderStatus;
     private SMSHelper smsHelper;
@@ -69,9 +69,9 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         orderSum = (TextView)findViewById(R.id.orderSum);
         contactPerson = (TextView)findViewById(R.id.contactPerson);
         contactNumber = (TextView)findViewById(R.id.contactNumber);
-        email = (TextView)findViewById(R.id.email);
-        address = (TextView)findViewById(R.id.address);
-        zipCode = (TextView)findViewById(R.id.zipCode);
+        email = (TextView)findViewById(R.id.contactEmail);
+        address = (TextView)findViewById(R.id.clientAddress);
+        zipCode = (TextView)findViewById(R.id.clientZipCode);
 
         clientName.setText(client.getClientName());
         clientID.setText("ClientID: " + Integer.toString(client.getClientID()));
@@ -166,3 +166,4 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         mMap.animateCamera( CameraUpdateFactory.zoomTo(15), 2000, null);
     }
 }
+

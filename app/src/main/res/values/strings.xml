@@ -9,4 +9,8 @@
     <string name="deliveredText">Levererad</string>
     <string name="deliverToggleBtn">Leverera</string>
     <string name="notDeliverToggleBtn">Ångra leverans</string>
+    <string name="orderField">Order</string>
+    <string name="contactField">Kontaktperson</string>
+    <string name="adressField">Adress</string>
 </resources>
+
