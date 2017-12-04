@@ -12,5 +12,6 @@
     <string name="orderField">Order</string>
     <string name="contactField">Kontaktperson</string>
     <string name="adressField">Adress</string>
+    <string name="deliveryDateField">Leverans bokad:</string>
 </resources>
 

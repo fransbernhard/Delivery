@@ -44,17 +44,20 @@ public class ClientsAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View rowView = mInflater.inflate(R.layout.list_item_clients, parent, false);
-        TextView titleTextView = (TextView) rowView.findViewById(R.id.client_list_title);
-        TextView subtitleTextView = (TextView) rowView.findViewById(R.id.client_list_subtitle);
-        TextView detailTextView = (TextView) rowView.findViewById(R.id.client_list_detail);
-        ImageView thumbnailImageView = (ImageView) rowView.findViewById(R.id.client_list_thumbnail);
+        TextView titleTextView = rowView.findViewById(R.id.client_list_name);
+        TextView subtitleTextView = rowView.findViewById(R.id.client_list_address);
+        TextView zipAndCityTextView = rowView.findViewById(R.id.client_list_zipAndCity);
+        TextView detailTextView = rowView.findViewById(R.id.client_list_date);
+        ImageView thumbnailImageView = rowView.findViewById(R.id.client_list_thumbnail);
         Order order = orderData.get(position);
         Client client = clientData.get(order.getClientID()-1);
+        String clientZipAndCity = client.getClientZipCode() + " " + client.getClientCity();
 
         titleTextView.setText(client.getClientName());
         subtitleTextView.setText(client.getClientAdress());
+        zipAndCityTextView.setText(clientZipAndCity);
         detailTextView.setText(order.getDeliveryTime());
-        thumbnailImageView.setImageResource(R.drawable.icon_two);
+        thumbnailImageView.setImageResource(R.drawable.map_icon);
 
         return rowView;
     }

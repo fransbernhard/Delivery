@@ -12,6 +12,6 @@
     <color name="colorCenter">#f8bbd0</color>
     <color name="colorStart">#ffeeff</color>
 
-    <color name="colorDelivered">#aafa6bcb</color>
+    <color name="colorDelivered">#ec9cde</color>
     <color name="colorNotDelivered">#FFFFFF</color>
 </resources>

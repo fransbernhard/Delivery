@@ -7,7 +7,7 @@
     <ImageView
         android:id="@+id/client_list_thumbnail"
         android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_marginBottom="8dp"
@@ -17,52 +17,71 @@
         tools:src="@mipmap/ic_launcher"
         android:contentDescription="thumbnail"/>
 
-    <TextView
-        android:id="@+id/client_list_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="2dp"
-        android:maxLines="1"
-        android:paddingEnd="4dp"
-        android:textColor="#000000"
-        android:textSize="12sp"
-        tools:text="Detail"
-        />
-
     <RelativeLayout
         android:id="@+id/client_list_text_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toStartOf="@id/client_list_detail"
+        android:layout_alignBottom="@+id/client_list_thumbnail"
+        android:layout_alignTop="@+id/client_list_thumbnail"
         android:layout_toEndOf="@id/client_list_thumbnail">
 
         <TextView
-            android:id="@+id/client_list_title"
+            android:id="@+id/client_list_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:textSize="18sp"
-            tools:text="Title"
-            />
+            android:layout_alignStart="@+id/client_list_address"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            tools:text="Name" />
 
         <TextView
-            android:id="@+id/client_list_subtitle"
+            android:id="@+id/client_list_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/client_list_title"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="2dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/client_list_name"
+            android:layout_marginStart="9dp"
             android:ellipsize="end"
             android:maxLines="3"
-            android:textSize="16sp"
-            tools:text="Subtitle"
-            />
+            android:textSize="14sp"
+            tools:text="Addressg" />
+
+        <TextView
+            android:id="@+id/client_list_zipAndCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/client_list_address"
+            tools:text="Zip and City" />
+
+        <TextView
+            android:id="@+id/DeliveryDateField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/client_list_date"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="14dp"
+            android:text="@string/deliveryDateField"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/client_list_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/DeliveryDateField"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/DeliveryDateField"
+            android:maxLines="1"
+            android:paddingEnd="4dp"
+            android:paddingStart="0dp"
+            android:paddingBottom="8dp"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            tools:text="Date" />
 
     </RelativeLayout>
+
 </RelativeLayout>
