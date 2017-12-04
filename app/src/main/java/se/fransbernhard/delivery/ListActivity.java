@@ -48,7 +48,8 @@ public class ListActivity extends AppCompatActivity {
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
         // This will remove App name
-//        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setIcon(R.drawable.ic_toolbar_app);
         shared = getSharedPreferences("PREFERENCES",MODE_PRIVATE);
         dbhelper = new DBHelper(this);
 
