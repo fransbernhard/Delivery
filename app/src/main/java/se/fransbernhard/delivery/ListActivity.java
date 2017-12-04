@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -35,6 +36,7 @@ public class ListActivity extends AppCompatActivity {
     private TextView unDeliverdText;
     private MenuItem refreshButton;
     private Animation animation;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +64,16 @@ public class ListActivity extends AppCompatActivity {
         unDeliverd = findViewById(R.id.EjLevButton);
 //        unDeliverdText = findViewById(R.id.EjLevText);
 
-        animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink_effect);
+        swipeRefreshLayout = findViewById(R.id.swiperefresh);
 
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshList();
+            }
+        });
+
+        animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink_effect);
 
         setAdapter();
 
@@ -97,6 +107,7 @@ public class ListActivity extends AppCompatActivity {
         editor.commit();
         ordersNotDelivered = dbhelper.getAllDeliveryStatus(0, amountOfOrders);
         setAdapter();
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     private void setAdapter() {
