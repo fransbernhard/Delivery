@@ -15,6 +15,6 @@
     <string name="deliveryDateField">Leverans bokad: </string>
     <string name="clientID">Kundnummer: </string>
     <string name="orderID">Ordernummer: </string>
-    <string name="orderSum">Ordersumma: </string>
+    <string name="orderSum">Summa: </string>
 </resources>
 
