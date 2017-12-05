@@ -31,7 +31,10 @@
                 android:value="se.fransbernhard.delivery.ListActivity" />
         </activity>
         <activity android:name=".ListActivity" />
-        <activity android:name=".DetailActivity">
+        <activity
+            android:name=".DetailActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="se.fransbernhard.delivery.ListActivity" />
