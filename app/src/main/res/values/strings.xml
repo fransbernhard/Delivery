@@ -11,7 +11,10 @@
     <string name="notDeliverToggleBtn">Ångra leverans</string>
     <string name="orderField">Order</string>
     <string name="contactField">Kontaktperson</string>
-    <string name="adressField">Adress</string>
-    <string name="deliveryDateField">Leverans bokad:</string>
+    <string name="addressField">Adress</string>
+    <string name="deliveryDateField">Leverans bokad: </string>
+    <string name="clientID">Kundnummer: </string>
+    <string name="orderID">Ordernummer: </string>
+    <string name="orderSum">Ordersumma: </string>
 </resources>
 

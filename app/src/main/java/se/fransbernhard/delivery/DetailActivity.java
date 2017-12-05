@@ -62,25 +62,25 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        clientName = (TextView)findViewById(R.id.clientName);
-        clientID = (TextView)findViewById(R.id.clientID);
-        deliveryDate = (TextView)findViewById(R.id.deliveryDate);
-        orderID = (TextView)findViewById(R.id.orderID);
-        orderSum = (TextView)findViewById(R.id.orderSum);
-        contactPerson = (TextView)findViewById(R.id.contactPerson);
-        contactNumber = (TextView)findViewById(R.id.contactNumber);
-        email = (TextView)findViewById(R.id.contactEmail);
-        address = (TextView)findViewById(R.id.clientAddress);
-        zipCode = (TextView)findViewById(R.id.clientZipCode);
+        clientName = findViewById(R.id.clientName);
+        clientID = findViewById(R.id.clientID);
+        deliveryDate = findViewById(R.id.deliveryDate);
+        orderID = findViewById(R.id.orderID);
+        orderSum = findViewById(R.id.orderSum);
+        contactPerson = findViewById(R.id.contactPerson);
+        contactNumber = findViewById(R.id.contactNumber);
+        email = findViewById(R.id.contactEmail);
+        address = findViewById(R.id.clientAddress);
+        zipCode = findViewById(R.id.clientZipCode);
 
         clientName.setText(client.getClientName());
-        clientID.setText("ClientID: " + Integer.toString(client.getClientID()));
-        deliveryDate.setText("Delivery date: " + order.getDeliveryTime());
-        orderID.setText("Order ID: " + Integer.toString(order.getOrderID()));
-        orderSum.setText("Ordersum: " + Integer.toString(order.getOrderSum()) + " kr");
+        clientID.setText(getResources().getText(R.string.clientID) + " " + Integer.toString(client.getClientID()));
+        deliveryDate.setText(getResources().getText(R.string.deliveryDateField) + " " + order.getDeliveryTime());
+        orderID.setText(getResources().getText(R.string.orderID) + " " + Integer.toString(order.getOrderID()));
+        orderSum.setText(getResources().getText(R.string.orderSum) + " " + Integer.toString(order.getOrderSum()) + " kr");
         contactPerson.setText(client.getContactPerson());
-        contactNumber.setText("Contactnumber: " + client.getContactNumber());
-        email.setText("Email: " + client.getContactEmail());
+        contactNumber.setText(client.getContactNumber());
+        email.setText(client.getContactEmail());
         address.setText(client.getClientAdress());
         zipCode.setText(client.getClientZipCode() + " " + client.getClientCity());
 
