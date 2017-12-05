@@ -15,7 +15,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -32,8 +31,6 @@ public class ListActivity extends AppCompatActivity {
     private ClientsAdapter adapterNotDelivered, adapterDelivered;
     private Button deliverd;
     private Button unDeliverd;
-    private TextView deliverdText;
-    private TextView unDeliverdText;
     private MenuItem refreshButton;
     private Animation animation;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -43,8 +40,8 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        myList = (ListView)findViewById(R.id.OrderLista);
-        toolbar = (Toolbar) findViewById(R.id.myToolbar);
+        myList = findViewById(R.id.OrderLista);
+        toolbar = findViewById(R.id.myToolbar);
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
         // This will remove App name
@@ -61,12 +58,9 @@ public class ListActivity extends AppCompatActivity {
         clients = dbhelper.getAllClients();
 
         deliverd = findViewById(R.id.LevButton);
-//        deliverdText = findViewById(R.id.LevText);
         unDeliverd = findViewById(R.id.EjLevButton);
-//        unDeliverdText = findViewById(R.id.EjLevText);
 
         swipeRefreshLayout = findViewById(R.id.swiperefresh);
-
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -75,9 +69,7 @@ public class ListActivity extends AppCompatActivity {
         });
 
         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink_effect);
-
         setAdapter();
-
     }
 
     @Override
@@ -124,7 +116,6 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ListActivity.this, DetailActivity.class);
-             //   intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 if (showingNotDelivered)
                     intent.putExtra("ORDER_ID", ordersNotDelivered.get(position).getOrderID());
                 else
@@ -137,39 +128,25 @@ public class ListActivity extends AppCompatActivity {
     public void clickedNotDelivered(View v) {
         showingNotDelivered = true;
         refreshButton.setVisible(true);
-
-//        unDeliverd.setVisibility(View.VISIBLE);
-//        unDeliverdText.setVisibility(View.INVISIBLE);
-//        deliverd.setVisibility(View.INVISIBLE);
-//        deliverdText.setVisibility(View.VISIBLE);
-
         setAdapter();
 
         unDeliverd.setBackgroundColor(getResources().getColor(R.color.colorDelivered));
         unDeliverd.setTextColor(getResources().getColor(R.color.colorNotDelivered));
         deliverd.setBackgroundColor(getResources().getColor(R.color.colorNotDelivered));
         deliverd.setTextColor(getResources().getColor(R.color.colorButton));
-
         unDeliverd.startAnimation(animation);
     }
 
     public void clickedDelivered(View v) {
         showingNotDelivered = false;
         refreshButton.setVisible(false);
-
-//        deliverd.setVisibility(View.VISIBLE);
-//        deliverdText.setVisibility(View.INVISIBLE);
-//        unDeliverd.setVisibility(View.INVISIBLE);
-//        unDeliverdText.setVisibility(View.VISIBLE);
+        setAdapter();
 
         deliverd.setBackgroundColor(getResources().getColor(R.color.colorDelivered));
         deliverd.setTextColor(getResources().getColor(R.color.colorNotDelivered));
         unDeliverd.setBackgroundColor(getResources().getColor(R.color.colorNotDelivered));
         unDeliverd.setTextColor(getResources().getColor(R.color.colorButton));
-
         deliverd.startAnimation(animation);
-
-        setAdapter();
     }
 
     //    public void mapClick(View v){

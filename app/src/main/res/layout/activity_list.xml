@@ -42,7 +42,7 @@
     </LinearLayout>
 
     <View
-        android:id="@+id/line"
+        android:id="@+id/divider"
         android:layout_width="wrap_content"
         android:layout_height="2dp"
         android:background="#c0c0c0" />
