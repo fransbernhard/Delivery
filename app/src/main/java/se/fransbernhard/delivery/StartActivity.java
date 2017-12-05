@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 
 public class StartActivity extends AppCompatActivity {
 
-    private final int splashLength = 2000;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +19,7 @@ public class StartActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, splashLength);
+        }, 2000);
 
     }
 

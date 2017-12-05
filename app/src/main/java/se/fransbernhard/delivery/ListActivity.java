@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -61,6 +62,7 @@ public class ListActivity extends AppCompatActivity {
         unDeliverd = findViewById(R.id.EjLevButton);
 
         swipeRefreshLayout = findViewById(R.id.swiperefresh);
+        swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.refreshColor));
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -94,13 +96,18 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void refreshList() {
-        amountOfOrders = shared.getInt("NUMBER_OF_ORDERS", 10);
-        SharedPreferences.Editor editor = shared.edit();
-        editor.putInt("CURRENT_NUMBER_OF_ORDERS", amountOfOrders);
-        editor.commit();
-        ordersNotDelivered = dbhelper.getAllDeliveryStatus(0, amountOfOrders);
-        setAdapter();
-        swipeRefreshLayout.setRefreshing(false);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                amountOfOrders = shared.getInt("NUMBER_OF_ORDERS", 10);
+                SharedPreferences.Editor editor = shared.edit();
+                editor.putInt("CURRENT_NUMBER_OF_ORDERS", amountOfOrders);
+                editor.commit();
+                ordersNotDelivered = dbhelper.getAllDeliveryStatus(0, amountOfOrders);
+                setAdapter();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        }, 1250);
     }
 
     private void setAdapter() {
