@@ -40,7 +40,8 @@ class Order {
     }
 
     public String getDeliveryTime() {
-        return deliveryTime;
+        String formatted = deliveryTime.substring(4)+"/"+deliveryTime.substring(3,5)+"-"+"20"+deliveryTime.substring(0,2);
+        return formatted;
     }
 
     public int getDelivered() {
