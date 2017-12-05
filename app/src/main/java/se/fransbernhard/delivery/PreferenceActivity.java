@@ -82,7 +82,7 @@ public class PreferenceActivity extends AppCompatActivity {
         seekBarHowMany.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                amountOfOrders = progress + 10;
+                amountOfOrders = progress+10;
                 textAmountOfOrders.setText(Integer.toString(amountOfOrders));
             }
 
@@ -108,7 +108,7 @@ public class PreferenceActivity extends AppCompatActivity {
             editEmail.setText(shared.getString("EMAIL", null));
         if (shared.contains("NUMBER_OF_ORDERS")) {
             amountOfOrders = shared.getInt("NUMBER_OF_ORDERS", 10);
-            seekBarHowMany.setProgress(shared.getInt("NUMBER_OF_ORDERS",10));
+            seekBarHowMany.setProgress(shared.getInt("NUMBER_OF_ORDERS",10)-10);
             textAmountOfOrders.setText(Integer.toString(amountOfOrders));
         }
         if (shared.contains("SEND_INFORMATION"))
