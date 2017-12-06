@@ -28,6 +28,8 @@ public class PreferenceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_preference);
 
         shared = getSharedPreferences("PREFERENCES",MODE_PRIVATE);
@@ -114,5 +116,6 @@ public class PreferenceActivity extends AppCompatActivity {
         if (shared.contains("SEND_INFORMATION"))
             sendConfirmation.setChecked(shared.getBoolean("SEND_INFORMATION", false));
     }
+
 
 }

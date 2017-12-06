@@ -20,10 +20,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:text="Hur många ordrar ska genereras vid uppdatering?"
+        android:text="@string/amountOfOrders"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myToolbar"
-        tools:text="Hur många ordrar ska genereras vid uppdatering?" />
+        app:layout_constraintTop_toBottomOf="@+id/myToolbar" />
 
     <SeekBar
         android:id="@+id/seekBarHowMany"
@@ -38,10 +37,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Skicka bekräftelse om leverans till lager"
+        android:text="@string/sendConfirmation"
         app:layout_constraintBottom_toTopOf="@+id/buttonSave"
-        app:layout_constraintStart_toStartOf="@+id/buttonSave"
-        tools:text="Skicka bekräftelse om leverans till lager" />
+        app:layout_constraintStart_toStartOf="@+id/buttonSave" />
 
     <EditText
         android:id="@+id/editPhoneNr"
@@ -49,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:ems="10"
-        android:hint="Telefonnummer"
+        android:hint="@string/phoneNumber"
         android:inputType="phone"
         app:layout_constraintBottom_toTopOf="@+id/editEmail"
         app:layout_constraintStart_toStartOf="@+id/editEmail" />
@@ -60,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:ems="10"
-        android:hint="E-mailaddress"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/sendConfirmation"
         app:layout_constraintStart_toStartOf="@+id/sendConfirmation" />
@@ -73,18 +71,16 @@
         android:layout_marginStart="24dp"
         android:background="@color/colorButtonfaded"
         android:onClick="clickedSave"
-        android:text="Spara"
+        android:text="@string/SaveButton"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Spara" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textAmountOfOrders"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/seekBarHowMany"
         app:layout_constraintStart_toEndOf="@+id/seekBarHowMany"
         app:layout_constraintTop_toTopOf="@+id/seekBarHowMany"

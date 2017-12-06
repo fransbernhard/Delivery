@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Smart Logistics</string>
+    <string name="settings_name">Preferences</string>
+    <string name="notDeliveredBtn">Not delivered</string>
+    <string name="deliveredBtn">Delivered</string>
+    <string name="settingsButton">Preferences</string>
+    <string name="refreshButton">Refresh</string>
+    <string name="listButton">Orders</string>
+    <string name="deliveredText">Delivered</string>
+    <string name="deliverToggleBtn">Deliver</string>
+    <string name="notDeliverToggleBtn">Undo delivery</string>
+    <string name="orderField">Order</string>
+    <string name="contactField">Contaktperson</string>
+    <string name="addressField">Address</string>
+    <string name="deliveryDateField">Delivery booked: </string>
+    <string name="clientID">Client ID: </string>
+    <string name="orderID">Order ID: </string>
+    <string name="orderSum">Sum: </string>
+    <string name="amountOfOrders">How many orders should be generated when updating</string>
+    <string name="phoneNumber">Phone number</string>
+    <string name="email">E-mailaddress</string>
+    <string name="sendConfirmation">Send confirmation upon delivery to the stock</string>
+    <string name="SaveButton">Save</string>
+</resources>

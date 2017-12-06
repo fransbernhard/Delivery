@@ -16,5 +16,10 @@
     <string name="clientID">Kundnummer: </string>
     <string name="orderID">Ordernummer: </string>
     <string name="orderSum">Summa: </string>
+    <string name="amountOfOrders">Hur många ordrar skall genereras vid uppdatering?</string>
+    <string name="phoneNumber">Telefonnummer</string>
+    <string name="email">E-mailadress</string>
+    <string name="sendConfirmation">Skicka bekräftelse om leverans till lager</string>
+    <string name="SaveButton">Spara</string>
 </resources>
 
