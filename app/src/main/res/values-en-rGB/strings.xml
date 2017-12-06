@@ -16,9 +16,10 @@
     <string name="clientID">Client ID: </string>
     <string name="orderID">Order ID: </string>
     <string name="orderSum">Sum: </string>
-    <string name="amountOfOrders">How many orders should be generated when updating</string>
+    <string name="amountOfOrders">How many orders should be \n\ generated when updating</string>
     <string name="phoneNumber">Phone number</string>
     <string name="email">E-mailaddress</string>
     <string name="sendConfirmation">Send confirmation upon delivery to the stock</string>
     <string name="SaveButton">Save</string>
+    <string name="changesSaved">Changes saved</string>
 </resources>

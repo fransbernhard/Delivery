@@ -76,7 +76,7 @@ public class PreferenceActivity extends AppCompatActivity {
         editor.putBoolean("SEND_INFORMATION",sendConfirmation.isChecked());
         editor.commit();
 
-        Toast.makeText(this, "Inställningar sparade",
+        Toast.makeText(this, R.string.changesSaved,
                 Toast.LENGTH_SHORT).show();
     }
 

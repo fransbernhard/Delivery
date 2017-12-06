@@ -21,5 +21,6 @@
     <string name="email">E-mailadress</string>
     <string name="sendConfirmation">Skicka bekräftelse om leverans till lager</string>
     <string name="SaveButton">Spara</string>
+    <string name="changesSaved">Inställningar sparade</string>
 </resources>
 
