@@ -37,6 +37,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
     private SMSHelper smsHelper;
     private GoogleMap mMap;
     private LatLng latlong;
+    private String number;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +52,13 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         shared = getSharedPreferences("PREFERENCES",MODE_PRIVATE);
         dbHelper = new DBHelper(this);
         Intent intent = getIntent();
+        number = intent.getStringExtra("PHONE_NUMBER");
         order = dbHelper.getOrder(intent.getIntExtra("ORDER_ID", 1));
         client = dbHelper.getClient(order.getClientID());
         deliveredToggleBtn = (ToggleButton)findViewById(R.id.DeliveredToggleBtn);
         initialOrderStatus = order.delivered;
         deliveredToggleBtn.setChecked(initialOrderStatus==0);
-        smsHelper = new SMSHelper(order.getOrderID());
+        smsHelper = new SMSHelper(number, order.getOrderID());
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);

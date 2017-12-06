@@ -35,6 +35,7 @@ public class ListActivity extends AppCompatActivity {
     private MenuItem refreshButton;
     private Animation animation;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private String phoneNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public class ListActivity extends AppCompatActivity {
         dbhelper = new DBHelper(this);
 
         amountOfOrders = shared.getInt("CURRENT_NUMBER_OF_ORDERS", shared.getInt("NUMBER_OF_ORDERS", 10));
+        phoneNumber = shared.getString("PHONE_NUMBER", "5554");
         showingNotDelivered = true;
 
         ordersDelivered = dbhelper.getAllDeliveryStatus(1);
@@ -123,8 +125,10 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ListActivity.this, DetailActivity.class);
-                if (showingNotDelivered)
+                if (showingNotDelivered) {
                     intent.putExtra("ORDER_ID", ordersNotDelivered.get(position).getOrderID());
+                    intent.putExtra("PHONE_NUMBER", phoneNumber);
+                }
                 else
                     intent.putExtra("ORDER_ID", ordersDelivered.get(position).getOrderID());
                 startActivity(intent);

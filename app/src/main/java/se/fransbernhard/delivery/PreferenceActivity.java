@@ -24,6 +24,7 @@ public class PreferenceActivity extends AppCompatActivity {
     private SharedPreferences shared;
     private int amountOfOrders;
     private Toolbar toolbar;
+    private String number;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +70,7 @@ public class PreferenceActivity extends AppCompatActivity {
 
     public void clickedSave(View v) {
         SharedPreferences.Editor editor = shared.edit();
-        editor.putString("PHONE_NUMBER",editPhoneNr.getText().toString());
+        editor.putString("PHONE_NUMBER", editPhoneNr.getText().toString());
         editor.putString("EMAIL",editEmail.getText().toString());
         editor.putInt("NUMBER_OF_ORDERS", amountOfOrders);
         editor.putInt("CURRENT_NUMBER_OF_ORDERS", amountOfOrders);
