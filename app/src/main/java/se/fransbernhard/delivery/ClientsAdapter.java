@@ -43,7 +43,7 @@ public class ClientsAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View rowView = mInflater.inflate(R.layout.clients_cards, parent, false);
+        View rowView = mInflater.inflate(R.layout.list_item_clients, parent, false);
         TextView titleTextView = rowView.findViewById(R.id.client_list_name);
         TextView subtitleTextView = rowView.findViewById(R.id.client_list_address);
         TextView zipAndCityTextView = rowView.findViewById(R.id.client_list_zipAndCity);
