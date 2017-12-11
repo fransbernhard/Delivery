@@ -58,7 +58,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         order = dbHelper.getOrder(intent.getIntExtra("ORDER_ID", 1));
         client = dbHelper.getClient(order.getClientID());
         deliveredToggleBtn = (ToggleButton)findViewById(R.id.DeliveredToggleBtn);
-        initialOrderStatus = order.delivered;
+        initialOrderStatus = order.getDelivered();
         deliveredToggleBtn.setChecked(initialOrderStatus==0);
         smsHelper = new SMSHelper(number, order.getOrderID());
 

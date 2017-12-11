@@ -159,7 +159,7 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues cv = new ContentValues();
-        int newStatus = order.delivered == 1 ? 0 : 1;
+        int newStatus = order.getDelivered() == 1 ? 0 : 1;
 
         cv.put("delivered", newStatus);
 

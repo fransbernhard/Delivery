@@ -15,6 +15,7 @@ class Client {
     private double clientLat;
     private double clientLong;
 
+
     public void setClientID(int clientID) {
         this.clientID = clientID;
     }
