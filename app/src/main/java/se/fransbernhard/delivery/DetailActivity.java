@@ -38,6 +38,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
     private GoogleMap mMap;
     private LatLng latlong;
     private String number;
+    private boolean sendInformation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,8 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         shared = getSharedPreferences("PREFERENCES",MODE_PRIVATE);
         dbHelper = new DBHelper(this);
         Intent intent = getIntent();
-        number = intent.getStringExtra("PHONE_NUMBER");
+        number = shared.getString("PHONE_NUMBER", "5554");
+        sendInformation = shared.getBoolean("SEND_INFORMATION", true);
         order = dbHelper.getOrder(intent.getIntExtra("ORDER_ID", 1));
         client = dbHelper.getClient(order.getClientID());
         deliveredToggleBtn = (ToggleButton)findViewById(R.id.DeliveredToggleBtn);
@@ -100,7 +102,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
 
                 editor.commit();
                 dbHelper.updateDelivered(order);
-                if (!isChecked)
+                if (!isChecked && sendInformation)
                     requestPermission();
             }
         });

@@ -53,7 +53,6 @@ public class ListActivity extends AppCompatActivity {
         dbhelper = new DBHelper(this);
 
         amountOfOrders = shared.getInt("CURRENT_NUMBER_OF_ORDERS", shared.getInt("NUMBER_OF_ORDERS", 10));
-        phoneNumber = shared.getString("PHONE_NUMBER", "5554");
         showingNotDelivered = true;
 
         ordersDelivered = dbhelper.getAllDeliveryStatus(1);
