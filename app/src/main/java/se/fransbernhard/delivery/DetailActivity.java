@@ -60,7 +60,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         deliveredToggleBtn = (ToggleButton)findViewById(R.id.DeliveredToggleBtn);
         initialOrderStatus = order.delivered;
         deliveredToggleBtn.setChecked(initialOrderStatus==0);
-        smsHelper = new SMSHelper(number, order.getOrderID());
+        smsHelper = new SMSHelper(number, order.getOrderID(), this);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);

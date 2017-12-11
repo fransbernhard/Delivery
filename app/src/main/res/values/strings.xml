@@ -22,5 +22,8 @@
     <string name="sendConfirmation">Skicka bekräftelse om leverans till lager</string>
     <string name="SaveButton">Spara</string>
     <string name="changesSaved">Inställningar sparade</string>
+    <string name="smsTextFirst">Order: </string>
+    <string name="smsTextSecond"> har levererats. Tack för att du använder Smart Logistics. </string>
 </resources>
+
 

@@ -22,4 +22,6 @@
     <string name="sendConfirmation">Send confirmation upon delivery to the stock</string>
     <string name="SaveButton">Save</string>
     <string name="changesSaved">Changes saved</string>
+    <string name="smsTextFirst">Order: </string>
+    <string name="smsTextSecond"> have been delivered. Thank You for using Smart Logistics. </string>
 </resources>

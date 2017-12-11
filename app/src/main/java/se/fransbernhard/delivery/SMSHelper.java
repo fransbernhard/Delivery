@@ -1,5 +1,6 @@
 package se.fransbernhard.delivery;
 
+import android.content.Context;
 import android.telephony.SmsManager;
 
 import java.util.ArrayList;
@@ -15,16 +16,16 @@ public class SMSHelper {
     private ArrayList<String> msgArray;
     final String serverNumber = "5554";
 
-    public SMSHelper(String phoneNumber, int orderNr) {
+    public SMSHelper(String phoneNumber, int orderNr, Context context) {
         this.phoneNumber = phoneNumber;
-        message = "Order: "+orderNr+" har levererats.";
+        message = context.getResources().getString(R.string.smsTextFirst)+ " " +orderNr+ " " + context.getResources().getString(R.string.smsTextSecond);
         smsManager = SmsManager.getDefault();
         msgArray = smsManager.divideMessage(message);
     }
 
-    public SMSHelper(int orderNr) {
+    public SMSHelper(int orderNr, Context context) {
         phoneNumber = serverNumber;
-        message = "Order: "+orderNr+" har levererats.";
+        message = context.getResources().getString(R.string.smsTextFirst)+ " " +orderNr+ " " + context.getResources().getString(R.string.smsTextSecond);
         smsManager = SmsManager.getDefault();
         msgArray = smsManager.divideMessage(message);
     }
