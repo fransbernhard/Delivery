@@ -106,7 +106,7 @@ public class PreferenceActivity extends AppCompatActivity {
 
     private void setupAsSaved() {
         if (shared.contains("PHONE_NUMBER"))
-            editPhoneNr.setText(shared.getString("PHONE_NUMBER", null));
+            editPhoneNr.setText(shared.getString("PHONE_NUMBER", "5554"));
         if (shared.contains("EMAIL"))
             editEmail.setText(shared.getString("EMAIL", null));
         if (shared.contains("NUMBER_OF_ORDERS")) {
