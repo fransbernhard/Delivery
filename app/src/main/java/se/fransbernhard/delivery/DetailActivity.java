@@ -143,6 +143,9 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         }
     }
 
+    /**
+     * Request permission
+     */
     private void requestPermission() {
         int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE);
 
