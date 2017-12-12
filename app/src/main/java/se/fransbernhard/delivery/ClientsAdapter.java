@@ -18,7 +18,12 @@ public class ClientsAdapter extends BaseAdapter {
     private List<Client> clientData;
     private List<Order> orderData;
 
-
+    /**
+     * Constructor
+     * @param context the context that you are in
+     * @param clients a list of all clients
+     * @param orders a list of all orders
+     */
     public ClientsAdapter(Context context, List<Client> clients, List<Order> orders) {
         this.context = context;
         clientData = clients;
@@ -26,21 +31,36 @@ public class ClientsAdapter extends BaseAdapter {
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
+    /**
+     * @return an int that represents the size of order list
+     */
     @Override
     public int getCount() {
         return orderData.size();
     }
 
+    /**
+     * @return the Object that user has clicked
+     */
     @Override
     public Object getItem(int position) {
         return clientData.get(position);
     }
 
+    /**
+     * @return the Object id that user has clicked
+     */
     @Override
     public long getItemId(int position) {
         return position;
     }
 
+    /**
+     * @param position the position that user has clicked on
+     * @param convertView 
+     * @param parent
+     * @return the Object that user has clicked
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View rowView = mInflater.inflate(R.layout.list_item_clients, parent, false);

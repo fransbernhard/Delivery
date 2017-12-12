@@ -11,23 +11,42 @@ class Order {
     private int delivered;
     private int clientID;
 
-
+    /**
+     * Set Order sum
+     * @param orderID contains a int with order id (Ex: 2)
+     */
     public void setOrderID(int orderID) {
         this.orderID = orderID;
     }
 
+    /**
+     * Set Order sum
+     * @param orderSum contains a int with order sum (Ex: 2223)
+     */
     public void setOrderSum(int orderSum) {
         this.orderSum = orderSum;
     }
 
+    /**
+     * Set Delivery time
+     * @param deliveryTime contains a String with delivery time (Ex: "230417")
+     */
     public void setDeliveryTime(String deliveryTime) {
         this.deliveryTime = deliveryTime;
     }
 
+    /**
+     * Set Delivery status
+     * @param delivered contains delivery status (Ex: 1 (true))
+     */
     public void setDelivered(int delivered) {
         this.delivered = delivered;
     }
 
+    /**
+     * Set Client ID
+     * @param clientID contains the clients ID (Ex: 2)
+     */
     public void setClientID(int clientID) {
         this.clientID = clientID;
     }
