@@ -21,11 +21,19 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final int DB_VERSION = 4;
     private Context context;
 
+    /**
+     * DBHelper constructor
+     * @param context - - the environment you are in
+     */
     public DBHelper(Context context) {
         super(context, "Delivered", null, DB_VERSION);
         this.context = context;
     }
 
+    /**
+     * Override SQLiteOpenHelpers onCreate method
+     * @param db - - the database
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         // When creating the database
@@ -36,9 +44,30 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    /**
+     * Override SQLiteOpenHelpers onUpgrade method
+     * @param db - - the database
+     * @param oldVersion - - old version
+     * @param newVersion - - new version
+     */
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // When upgrading the database
+        if(oldVersion < newVersion){
+            db.delete("Orders", null, null);
+            db.delete("Clients", null, null);
+            onCreate(db);
+        }
+    }
+
+    /**
+     * Insert data from file
+     * @param db - - the database
+     * @param resourceId - - the resource ID
+     * @return int with result
+     */
     public int insertFromFile(int resourceId, SQLiteDatabase db) throws IOException {
         int result = 0;
-
 
         InputStream insertStream = context.getResources().openRawResource(resourceId);
         BufferedReader insertReader = new BufferedReader(new InputStreamReader(insertStream));
@@ -57,16 +86,9 @@ public class DBHelper extends SQLiteOpenHelper {
         return result;
     }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // When upgrading the database
-        if(oldVersion < newVersion){
-            db.delete("Orders", null, null);
-            db.delete("Clients", null, null);
-            onCreate(db);
-        }
-    }
-
+    /**
+     * @return a list of all clients
+     */
     public List<Client> getAllClients(){
         List<Client> clientList = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
@@ -96,6 +118,11 @@ public class DBHelper extends SQLiteOpenHelper {
         return clientList;
     }
 
+    /**
+     * @return a limited list of orders with a specific delivery status
+     * @param delivered - - delivery status
+     * @param limit - - how many order items that should be returned
+     */
     public List<Order> getAllDeliveryStatus(int delivered, int limit) {
         List<Order> orderList = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
@@ -123,6 +150,10 @@ public class DBHelper extends SQLiteOpenHelper {
         return orderList;
     }
 
+    /**
+     * @return a list of orders with a specific delivery status
+     * @param delivered - - delivery status
+     */
     public List<Order> getAllDeliveryStatus(int delivered) {
         List<Order> orderList = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
@@ -152,7 +183,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     /**
      * Update delivered field in database
-     * @params order - - object
+     * @param order - - object
      * @return true or false boolean
      */
     public boolean updateDelivered(Order order){
@@ -202,7 +233,10 @@ public class DBHelper extends SQLiteOpenHelper {
         return client;
     }
 
-
+    /**
+     * @param orderID - - orders id
+     * @return a order at a specific position
+     */
     public Order getOrder(int orderID){
         SQLiteDatabase db = getReadableDatabase();
 

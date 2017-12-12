@@ -57,8 +57,8 @@ public class ClientsAdapter extends BaseAdapter {
 
     /**
      * @param position the position that user has clicked on
-     * @param convertView 
-     * @param parent
+     * @param convertView View
+     * @param parent ViewGroup parent
      * @return the Object that user has clicked
      */
     @Override
