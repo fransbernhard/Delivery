@@ -114,9 +114,6 @@ public class ListActivity extends AppCompatActivity {
         }, 1250);
     }
 
-    /**
-     * Handle list refresh
-     */
     private void setAdapter() {
         adapterNotDelivered = new ClientsAdapter(this, clients, ordersNotDelivered);
         adapterDelivered = new ClientsAdapter(this, clients, ordersDelivered);
