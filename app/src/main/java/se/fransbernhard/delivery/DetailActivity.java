@@ -40,6 +40,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
     private String number;
     private boolean sendInformation;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -142,6 +143,9 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         }
     }
 
+    /**
+     * Request permission
+     */
     private void requestPermission() {
         int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE);
 
