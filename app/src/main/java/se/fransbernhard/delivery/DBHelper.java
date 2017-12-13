@@ -18,7 +18,7 @@ import java.util.List;
  */
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final int DB_VERSION = 4;
+    public static final int DB_VERSION = 6;
     private Context context;
 
     public DBHelper(Context context) {
